@@ -1,0 +1,39 @@
+{
+  "name": "changelog-keeper",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "set \"BROWSER=./carlo/cli.js\" && npm start",
+    "start": "react-scripts start"
+  },
+  "bin": {
+    "tcl": "index.js"
+  },
+  "carlo": {
+    "index": "./src/backend.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "carlo": "^0.9.46",
+    "keep-a-changelog": "^0.8.1",
+    "spectre-react-components": "git+https://github.com/thomn/spectre-react-components.git"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@npm-chrome-extensions/react-devtools": "^3.4.2-dev.1",
+    "nodemon": "^1.19.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "^3.1.2",
+    "prop-types": "latest",
+    "spectre.css": "^0.5.8"
+  }
+}
