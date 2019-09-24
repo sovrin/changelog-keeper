@@ -1,9 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Context} from './Backend';
-import {Button} from 'spectre-react-components';
+import {Button, Container, Dropdown} from 'spectre-react-components';
 import 'spectre.css';
+import 'spectre.css/dist/spectre-icons.min.css';
+import {Context} from './Backend';
 import Changelog from './Changelog';
-import Switch, {Case} from './utilities/Switch';
+import switched from './utilities/switched';
+
+const {Switch, Case} = switched();
 
 /**
  *
@@ -20,7 +23,7 @@ const App = () => {
     }, []);
 
     return (
-        <div>
+        <Container size={Container.Size.MEDIUM}>
             <Switch conditions={{
                 changelog,
             }}>
@@ -34,7 +37,7 @@ const App = () => {
             >
                 save
             </Button>
-        </div>
+        </Container>
     );
 };
 

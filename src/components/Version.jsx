@@ -9,7 +9,7 @@ import React from 'react';
 const Version = ({children}) => {
     return (
         <span className="version">
-           [{children}]
+            {children}
         </span>
     );
 };

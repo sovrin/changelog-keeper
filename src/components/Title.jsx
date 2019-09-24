@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {Button} from 'spectre-react-components';
+import {Action} from '../reducers/changelog';
 import {Context} from './Changelog';
 
 /**
@@ -9,12 +10,15 @@ import {Context} from './Changelog';
  * @constructor
  */
 const Title = ({children}) => {
-    const {updater} = useContext(Context);
-    const {update} = updater('title');
+    const {dispatch} = useContext(Context);
+
+    const handleChange = () => {
+        dispatch({type: Action.EDIT_TITLE, value: 'NEW TITLE'});
+    };
 
     return (
         <h1 className="title">
-            <Button onClick={() => update('NEW TITLE')}>update</Button>
+            <Button onClick={handleChange}>update</Button>
             {children}
         </h1>
     );

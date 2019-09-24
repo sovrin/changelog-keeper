@@ -1,38 +1,12 @@
-import React, {useState, createContext} from 'react';
+import React, {useState, createContext, useReducer} from 'react';
 import {parser} from 'keep-a-changelog';
 import Release from './Release';
 import Title from './Title';
 import Description from './Description';
-
+import reducer from '../reducers/changelog';
 export const Context = createContext(false);
 
 const {Provider} = Context;
-
-/**
- *
- * @param obj
- * @param setter
- * @returns {{set: *}}
- */
-const updater = (obj, setter) => {
-    return (path) => {
-        const update = (value) => {
-            if (path === 'title') {
-                obj.title = value;
-            }
-
-            if (path === 'description') {
-                obj.description = value;
-            }
-
-            setter(parser(obj.toString()));
-        };
-
-        return {
-            update,
-        };
-    };
-};
 
 /**
  *
@@ -41,13 +15,12 @@ const updater = (obj, setter) => {
  * @constructor
  */
 const Changelog = ({source}) => {
-    const [changelog, setChangelog] = useState(parser(source));
+    const [changelog, dispatch] = useReducer(reducer, parser(source));
     const {description, title, releases} = changelog;
 
     const context = {
+        dispatch,
         changelog,
-        updater: updater(changelog, setChangelog),
-        stringify: () => console.info(changelog.toString())
     };
 
     return (

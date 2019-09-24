@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {Button} from 'spectre-react-components';
+import {Action} from '../reducers/changelog';
 import {Context} from './Changelog';
 
 /**
@@ -9,13 +10,16 @@ import {Context} from './Changelog';
  * @constructor
  */
 const Description = ({children}) => {
-    const {updater, stringify} = useContext(Context);
-    const {update} = updater('description');
+    const {dispatch, stringify} = useContext(Context);
+
+    const handleChange = () => {
+        dispatch({type: Action.EDIT_DESCRIPTION, value: 'NEW DESCRIPTION'});
+    };
 
     return (
         <p className="description">
-            <Button onClick={() => update('new desc')}>update</Button>
-            <Button onClick={() => stringify()}>string</Button>
+            <Button onClick={handleChange}>update</Button>
+            <Button onClick={stringify}>string</Button>
             {children}
         </p>
     );
