@@ -1,6 +1,7 @@
 import {parser} from 'keep-a-changelog';
 
 export const Action = {
+    SET_CHANGELOG: 'set_changelog',
     EDIT_TITLE: 'edit_title',
     EDIT_DESCRIPTION: 'edit_description',
 };
@@ -19,6 +20,13 @@ const convert = (state) => parser(state.toString());
  */
 export default (state, {type, value}) => {
     switch (type) {
+        case Action.SET_CHANGELOG:
+            if (!value) {
+                return null;
+            }
+
+            return convert(value);
+
         case Action.EDIT_TITLE:
             state.title = value;
 

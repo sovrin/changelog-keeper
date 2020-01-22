@@ -1,7 +1,7 @@
-import React, {useContext} from 'react';
-import {Button} from 'spectre-react-components';
+import React from 'react';
+import {Button} from '@thomann/spectre-react-components';
 import {Action} from '../reducers/changelog';
-import {Context} from './Changelog';
+import useChangelog from '../hooks/useChangelog';
 
 /**
  *
@@ -10,7 +10,7 @@ import {Context} from './Changelog';
  * @constructor
  */
 const Description = ({children}) => {
-    const {dispatch, stringify} = useContext(Context);
+    const {dispatch, stringify} = useChangelog();
 
     const handleChange = () => {
         dispatch({type: Action.EDIT_DESCRIPTION, value: 'NEW DESCRIPTION'});

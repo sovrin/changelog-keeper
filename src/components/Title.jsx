@@ -1,7 +1,15 @@
-import React, {useContext} from 'react';
-import {Button} from 'spectre-react-components';
+import React from 'react';
+import {Button} from '@thomann/spectre-react-components';
+import styled from 'styled-components';
+import Icon from '@thomann/spectre-react-components/Icon';
 import {Action} from '../reducers/changelog';
-import {Context} from './Changelog';
+import useChangelog from '../hooks/useChangelog';
+
+const H1 = styled.h1`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
 
 /**
  *
@@ -10,17 +18,26 @@ import {Context} from './Changelog';
  * @constructor
  */
 const Title = ({children}) => {
-    const {dispatch} = useContext(Context);
+    const {dispatch} = useChangelog();
 
+    /**
+     *
+     */
     const handleChange = () => {
         dispatch({type: Action.EDIT_TITLE, value: 'NEW TITLE'});
     };
 
     return (
-        <h1 className="title">
-            <Button onClick={handleChange}>update</Button>
+        <H1 className="title">
             {children}
-        </h1>
+            <Button
+                onClick={handleChange}
+                link
+                action
+            >
+                <Icon type={Icon.Type.EDIT}/>
+            </Button>
+        </H1>
     );
 };
 

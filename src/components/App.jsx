@@ -1,45 +1,16 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Button, Container, Dropdown} from 'spectre-react-components';
+import React from 'react';
 import 'spectre.css';
 import 'spectre.css/dist/spectre-icons.min.css';
-import {Context} from './Backend';
-import Changelog from './Changelog';
-import switched from './utilities/switched';
-
-const {Switch, Case} = switched();
+import 'spectre.css/dist/spectre-exp.min.css';
+import useRoutes from '../hooks/useRoutes';
+import routes from '../routes';
 
 /**
  *
  * @returns {*}
  * @constructor
  */
-const App = () => {
-    const backend = useContext(Context);
-    const [changelog, setChangelog] = useState(null);
-
-    useEffect(() => {
-        backend.readLog()
-            .then(setChangelog);
-    }, []);
-
-    return (
-        <Container size={Container.Size.MEDIUM}>
-            <Switch conditions={{
-                changelog,
-            }}>
-                <Case test={({changelog}) => changelog}>
-                    <Changelog source={changelog}/>
-                </Case>
-            </Switch>
-
-            <Button
-                primary
-            >
-                save
-            </Button>
-        </Container>
-    );
-};
+const App = () => useRoutes(routes);
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>

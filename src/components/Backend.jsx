@@ -12,7 +12,10 @@ export default ({children}) => {
     const [backend, setBackend] = useState(null);
 
     useEffect(() => {
-        window.carlo.loadParams().then(([params]) => setBackend(params));
+        window.carlo
+            .loadParams()
+            .then(([params]) => setBackend(params))
+        ;
     }, []);
 
     if (!backend) {

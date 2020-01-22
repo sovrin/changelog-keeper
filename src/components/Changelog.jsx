@@ -1,36 +1,29 @@
-import React, {useState, createContext, useReducer} from 'react';
-import {parser} from 'keep-a-changelog';
+import React from 'react';
 import Release from './Release';
 import Title from './Title';
 import Description from './Description';
-import reducer from '../reducers/changelog';
-export const Context = createContext(false);
-
-const {Provider} = Context;
+import useChangelog from '../hooks/useChangelog';
 
 /**
  *
- * @param source
- * @returns {*}
+ * @returns {null|*}
  * @constructor
  */
-const Changelog = ({source}) => {
-    const [changelog, dispatch] = useReducer(reducer, parser(source));
-    const {description, title, releases} = changelog;
+const Changelog = () => {
+    const {changelog} = useChangelog();
 
-    const context = {
-        dispatch,
-        changelog,
-    };
+    if (!changelog) {
+        return null;
+    }
+
+    const {title, description, releases} = changelog;
 
     return (
-        <Provider value={context}>
-            <div className="changelog">
-                <Title>{title}</Title>
-                <Description>{description}</Description>
-                {releases.map(Release)}
-            </div>
-        </Provider>
+        <div className="changelog">
+            <Title>{title}</Title>
+            <Description>{description}</Description>
+            {releases.map(Release)}
+        </div>
     );
 };
 

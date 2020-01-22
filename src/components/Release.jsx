@@ -13,7 +13,10 @@ const Release = ({children, key, changes, version, date}) => {
     const {raw} = version;
 
     return (
-        <div className="release">
+        <div
+            key={version}
+            className="release"
+        >
             <h2 className="">
                 <Version>{raw}</Version> - <Date date={date}/>
             </h2>
