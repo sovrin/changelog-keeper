@@ -1,9 +1,11 @@
 import {parser} from 'keep-a-changelog';
 
 export const Action = {
+    ADD_RELEASE: 'add_release',
+    DELETE_RELEASE: 'delete_release',
     SET_CHANGELOG: 'set_changelog',
     EDIT_TITLE: 'edit_title',
-    EDIT_DESCRIPTION: 'edit_description',
+    EDIT_DESCRIPTION: 'edit_about',
 };
 
 /**
@@ -20,11 +22,12 @@ const convert = (state) => parser(state.toString());
  */
 export default (state, {type, value}) => {
     switch (type) {
-        case Action.SET_CHANGELOG:
-            if (!value) {
-                return null;
-            }
+        case Action.ADD_RELEASE:
+            state.addRelease(value);
 
+            return convert(state);
+
+        case Action.SET_CHANGELOG:
             return convert(value);
 
         case Action.EDIT_TITLE:

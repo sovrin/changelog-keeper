@@ -1,17 +1,13 @@
 import React, {Children} from 'react';
-import styled, {createGlobalStyle} from 'styled-components';
+import styled from 'styled-components';
 import OffCanvas from '@thomann/spectre-react-components/OffCanvas';
 import {useClassName} from '@thomann/spectre-react-components/hooks';
-import Header from './Page/Header';
-import Sidebar from './Page/Sidebar';
-import Overlay from './Page/Overlay';
-import Content from './Page/Content';
-import Provider from '../contexts/Page';
-
-const Global = createGlobalStyle`
-    body {
-    }
-`;
+import Header from '../templates/Header';
+import Sidebar from '../templates/Sidebar';
+import Overlay from '../templates/Overlay';
+import Content from '../templates/Content';
+import Provider from '../../contexts/Page';
+import useTheme from '../../hooks/useTheme';
 
 const Element = styled(OffCanvas)`
     min-height: 100vh
@@ -23,6 +19,8 @@ const Element = styled(OffCanvas)`
  * @constructor
  */
 const Page = ({children}) => {
+    useTheme();
+
     const className = useClassName('page');
     const data = {};
 
@@ -37,7 +35,6 @@ const Page = ({children}) => {
 
     return (
         <Provider>
-            <Global/>
             <Element
                 className={className}
                 sidebar

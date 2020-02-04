@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Context as Backend} from '../components/Backend';
+import {Context as Backend} from '../contexts/Backend';
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>

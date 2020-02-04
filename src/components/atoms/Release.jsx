@@ -1,28 +1,33 @@
 import React from 'react';
-import Changes from './Changes';
-import Date from './Date';
+import Menu from '@thomann/spectre-react-components/Menu';
+import Changes from '../molecules/Changes';
+import Timestamp from './Timestamp';
 import Version from './Version';
 
 /**
  *
  * @param children
+ * @param key
+ * @param changes
+ * @param version
+ * @param date
  * @returns {*}
  * @constructor
  */
-const Release = ({children, key, changes, version, date}) => {
+const Release = ({children, changes, version, date}) => {
     const {raw} = version;
 
     return (
-        <div
-            key={version}
+        <Menu
+            key={raw}
             className="release"
         >
-            <h2 className="">
-                <Version>{raw}</Version> - <Date date={date}/>
+            <h2>
+                <Version>{raw}</Version> - <Timestamp date={date}/>
             </h2>
             {children}
             <Changes changes={changes}/>
-        </div>
+        </Menu>
     );
 };
 

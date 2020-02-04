@@ -6,13 +6,11 @@ import React from 'react';
  * @returns {*}
  * @constructor
  */
-const Version = ({children}) => {
-    return (
-        <span className="version">
-            {children}
-        </span>
-    );
-};
+const Version = ({children}) => (
+    <span className="version">
+        {children}
+    </span>
+);
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>

@@ -1,5 +1,8 @@
 import React from 'react';
-import Change from './Change';
+import Change from '../atoms/Change';
+import {Change as Entry} from 'keep-a-changelog';
+import {Action} from '../../reducers/changelog';
+import useChangelog from '../../hooks/useChangelog';
 
 /**
  *
@@ -9,6 +12,17 @@ import Change from './Change';
  */
 const Changes = ({changes}) => {
     const children = [];
+    const {dispatch} = useChangelog();
+
+    const addChange = () => {
+        const entry = new Entry('2.0.0', new Date() , 'foobar');
+
+        dispatch({type: Action.ADD_RELEASE, value: entry});
+    };
+
+    const removeChange = () => {
+
+    };
 
     for (const [type, entries] of changes) {
         if (!entries.length) {

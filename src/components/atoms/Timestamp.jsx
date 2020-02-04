@@ -1,5 +1,5 @@
 import React from 'react';
-import useMysqlDate from '../hooks/useMysqlDate';
+import useMysqlDate from '../../hooks/useMysqlDate';
 
 /**
  *
@@ -7,7 +7,11 @@ import useMysqlDate from '../hooks/useMysqlDate';
  * @returns {*}
  * @constructor
  */
-const Date = ({date}) => {
+const Timestamp = ({date}) => {
+    if (!date) {
+        date = new Date();
+    }
+
     date = useMysqlDate(date);
 
     return (
@@ -22,4 +26,4 @@ const Date = ({date}) => {
  * Date: 23.09.2019
  * Time: 22:40
  */
-export default Date;
+export default Timestamp;

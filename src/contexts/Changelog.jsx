@@ -1,4 +1,4 @@
-import React, {createContext, useReducer, useEffect} from 'react';
+import React, {createContext, useReducer, useEffect, useCallback, useMemo, useState} from 'react';
 import reducer, {Action} from '../reducers/changelog';
 import useBackend from '../hooks/useBackend';
 
@@ -12,14 +12,22 @@ const {Provider} = Context;
  */
 export default ({children}) => {
     const {source} = useBackend();
-    const [changelog, dispatch] = useReducer(reducer, null);
+    const [data, dispatch] = useReducer(reducer, {
+        title: '',
+        description: '',
+        releases: [],
+    });
 
     const context = {
+        data,
         dispatch,
-        changelog,
     };
 
     useEffect(() => {
+        if (!source) {
+            return;
+        }
+
         dispatch({type: Action.SET_CHANGELOG, value: source});
     }, [source]);
 

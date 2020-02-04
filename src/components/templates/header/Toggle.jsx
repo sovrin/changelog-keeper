@@ -2,16 +2,16 @@ import React from 'react';
 import {Toggle as Target} from '@thomann/spectre-react-components/OffCanvas';
 import {Icon} from '@thomann/spectre-react-components';
 import styled from 'styled-components';
-import {BREAKPOINT_960, UNIT_5, UNIT_7} from '../../../style';
 import usePage from '../../../hooks/usePage';
+import {Breakpoint} from '../../../hooks/useTheme';
 
 const Element = styled(Target)`
-    font-size: ${UNIT_5};
-    left: ${UNIT_7} !important;
+    font-size: var(--unit-5);
+    left: var(--unit-7) !important;
     position: fixed !important;
-    top: ${UNIT_5} !important;
+    top: var(--unit-5) !important;
     
-    @media (max-width: ${BREAKPOINT_960}) {
+    @media (max-width: ${Breakpoint.MD}) {
         z-index: 300
     }
 `;

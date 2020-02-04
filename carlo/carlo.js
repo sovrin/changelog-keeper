@@ -44,6 +44,7 @@ const factory = async ({url = URL, backend = BACKEND, appName = APP_NAME, icon =
         });
     } catch (e) {
         console.error(e);
+
         return;
     }
 
@@ -52,8 +53,6 @@ const factory = async ({url = URL, backend = BACKEND, appName = APP_NAME, icon =
     }
 
     app.on('exit', () => process.exit());
-    app.on('window', window => window.load(url, rpc.handle(backend)));
-
     await app.load(url, rpc.handle(backend));
 };
 

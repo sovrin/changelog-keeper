@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import {BREAKPOINT_600, UNIT_4, UNIT_5, UNIT_7} from '../../../style';
 import Button from '@thomann/spectre-react-components/Button';
 import {useUtility} from '@thomann/spectre-react-components/hooks';
-const {Display, default: fn} = useUtility;
+import {Breakpoint} from '../../../hooks/useTheme';
+
+const {Display, default: utility} = useUtility;
 
 const Element = styled('div')`
     position: absolute;
-    right: ${UNIT_7};
-    top: ${UNIT_5};
+    right: var(--unit-7);
+    top: var(--unit-5);
     
-    @media (max-width: ${BREAKPOINT_600}) {
-        right: ${UNIT_4}
+    @media (max-width: ${Breakpoint.SM}) {
+        right: var(--unit-4)
     }
 `;
 
@@ -21,7 +22,7 @@ const Element = styled('div')`
  * @constructor
  */
 const Controls = () => {
-    const style = fn(Display.FLEX);
+    const style = utility(Display.FLEX);
 
     return (
         <Element {...style}>

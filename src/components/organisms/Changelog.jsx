@@ -1,8 +1,8 @@
 import React from 'react';
-import Release from './Release';
-import Title from './Title';
-import Description from './Description';
-import useChangelog from '../hooks/useChangelog';
+import Title from '../atoms/Title';
+import Description from '../atoms/Description';
+import Releases from '../molecules/Releases';
+import useChangelog from '../../hooks/useChangelog';
 
 /**
  *
@@ -10,19 +10,14 @@ import useChangelog from '../hooks/useChangelog';
  * @constructor
  */
 const Changelog = () => {
-    const {changelog} = useChangelog();
-
-    if (!changelog) {
-        return null;
-    }
-
-    const {title, description, releases} = changelog;
+    const {data} = useChangelog();
+    const {title, description, releases} = data;
 
     return (
         <div className="changelog">
             <Title>{title}</Title>
             <Description>{description}</Description>
-            {releases.map(Release)}
+            <Releases releases={releases}/>
         </div>
     );
 };

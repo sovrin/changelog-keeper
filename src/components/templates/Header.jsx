@@ -1,17 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import {add, BREAKPOINT_960, UNIT_9} from '../../style';
-import Toggle from './Header/Toggle';
-import Controls from './Header/Controls';
+import Toggle from './header/Toggle';
+import Controls from './header/Controls';
+import {Breakpoint} from '../../hooks/useTheme';
 
 const Element = styled('div')`
-    height: ${add(UNIT_9, 2)};
+    height: calc(var(--unit-9) + 2rem);
     position: fixed;
     right: 0;
     top: 0;
     z-index: 100;
     
-    @media (max-width: ${BREAKPOINT_960}) {
+    @media (max-width: ${Breakpoint.MD}) {
         backdrop-filter: blur(5px);
         background: rgba(246, 247, 248, 0.65);
         left: 0

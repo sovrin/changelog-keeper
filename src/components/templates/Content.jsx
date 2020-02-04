@@ -2,15 +2,16 @@ import React from 'react';
 import {Content as Target} from '@thomann/spectre-react-components/OffCanvas';
 import Container from '@thomann/spectre-react-components/Container';
 import styled from 'styled-components';
-import {mul, BREAKPOINT_960, UNIT_10} from '../../style';
+import {Breakpoint} from '../../hooks/useTheme';
 
 const Element = styled(Target)`
     flex: 1 1 auto;
     padding: 0 !important;
     
-    @media (max-width: ${BREAKPOINT_960}) {
+    @media (max-width: ${Breakpoint.MD}) {
+
         width: 100%;
-        margin-top: ${mul(UNIT_10, 2)};
+        margin-top: calc(var(--unit-10) * 2);
     }
 `;
 

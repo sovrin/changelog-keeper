@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button} from '@thomann/spectre-react-components';
-import useChangelog from '../hooks/useChangelog';
+import useChangelog from '../../hooks/useChangelog';
+import Entries from '../molecules/Entries';
 
 /**
  *
@@ -9,29 +10,24 @@ import useChangelog from '../hooks/useChangelog';
  * @constructor
  */
 const Change = ({children, type, entries}) => {
-    const {dispatch, stringify} = useChangelog();
+    const {dispatch} = useChangelog();
+
+    const addEntry = () => {
+
+    };
+
+    const removeEntry = () => {
+
+    };
 
     return (
         <div className="change">
             <h3>{type}</h3>
-            <ul>
-                <Button onClick={() => alert('asd')}>new entry</Button>
-                {entries.map(Entry)}
-            </ul>
+            <Entries entries={entries}/>
             {children}
-        </div>
-    );
-};
 
-/**
- *
- * @param title
- * @returns {*}
- * @constructor
- */
-const Entry = ({title}) => {
-    return (
-        <li key={title}>{title}</li>
+            <Button onClick={() => alert('asd')}>new entry</Button>
+        </div>
     );
 };
 
