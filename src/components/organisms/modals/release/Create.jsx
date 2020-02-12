@@ -1,14 +1,11 @@
 import React from 'react';
-import Group from '@thomann/spectre-react-components/Group';
-import Button from '@thomann/spectre-react-components/Button';
-import Label from '@thomann/spectre-react-components/Label';
+import styled from 'styled-components';
 import Prompt from '../Prompt';
-import useSemVer, {Type} from '../../../../hooks/useSemVer';
-import useI18n from '../../../../hooks/useI18n';
+import Hint from '../../../atoms/Hint';
 import ReleaseTypes from '../../../molecules/ReleaseTypes';
 import SemVer from '../../../molecules/SemVer';
-import styled from 'styled-components';
-import Hint from '../../../atoms/Hint';
+import useSemVer from '../../../../hooks/useSemVer';
+import useI18n from '../../../../hooks/useI18n';
 
 const Element = styled('div')`
     display: flex;
@@ -25,13 +22,10 @@ const Create = (props) => {
     const {version, onCreate} = props;
     const {bump, type, next, view} = useSemVer(version);
 
-    const {hint} = useI18n({
-        hint: `release.${type}`,
-    });
-
-    const {title, label} = useI18n({
+    const {title, label, hint} = useI18n({
         title: 'modal.create.title',
         label: 'common.create',
+        hint: `release.${type}`,
     });
 
     return (
