@@ -14,32 +14,18 @@ import Create from '../organisms/modals/release/Create';
  * @constructor
  */
 const Releases = ({releases}) => {
-    const {dispatch} = useChangelog();
-    const [showModal, close] = useModal.default(Create);
-    const [head] = releases;
+    const {dispatch, head} = useChangelog();
+    const [showModal] = useModal.default(Create);
 
     const addRelease = () => {
-        showModal();
+        const {version} = head;
+
+        showModal({version});
     };
 
     const removeRelease = () => {
 
     };
-
-    useEffect(() => {
-        const [head] = releases;
-        if (!head) {
-            return;
-        }
-
-        const {version} = head;
-
-        showModal({version});
-
-        return () => {
-            close();
-        };
-    }, [releases]);
 
     return (
         <div className="releases">

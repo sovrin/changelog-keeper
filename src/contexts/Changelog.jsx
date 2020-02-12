@@ -12,14 +12,17 @@ const {Provider} = Context;
  */
 export default ({children}) => {
     const {source} = useBackend();
-    const [data, dispatch] = useReducer(reducer, {
+    const [changelog, dispatch] = useReducer(reducer, {
         title: '',
         description: '',
         releases: [],
     });
 
+    const {releases: [head]} = changelog;
+
     const context = {
-        data,
+        changelog,
+        head,
         dispatch,
     };
 

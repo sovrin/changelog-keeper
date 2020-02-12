@@ -10,8 +10,8 @@ import useChangelog from '../../hooks/useChangelog';
  * @constructor
  */
 const Changelog = () => {
-    const {data} = useChangelog();
-    const {title, description, releases} = data;
+    const {changelog} = useChangelog();
+    const {title, description, releases} = changelog;
 
     return (
         <div className="changelog">

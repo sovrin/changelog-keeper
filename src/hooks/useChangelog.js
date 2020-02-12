@@ -7,10 +7,11 @@ import {Context} from '../contexts/Changelog';
  * Time: 20:35
  */
 export default () => {
-    const {data, dispatch} = useContext(Context);
+    const {changelog, head, dispatch} = useContext(Context);
 
     return {
-        data,
+        changelog,
+        head,
         dispatch,
     };
 };
