@@ -6,8 +6,13 @@ import {useClassName} from '@thomann/spectre-react-components/hooks';
  *
  */
 const Element = styled('div')`
+    display: flex;
+
+
     &.active {
-        background: red;
+        display: flex;
+        flex: 1;
+        margin-right: var(--spacing);
     }
 `;
 

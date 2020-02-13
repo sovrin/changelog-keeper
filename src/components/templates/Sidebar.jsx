@@ -2,7 +2,6 @@ import React from 'react';
 import {Sidebar as Target} from '@thomann/spectre-react-components/OffCanvas';
 import styled from 'styled-components';
 import usePage from '../../hooks/usePage';
-import Brand from './sidebar/Brand';
 
 const Element = styled(Target)`
      width: 12rem
@@ -18,10 +17,7 @@ const Sidebar = ({children}) => {
     const {id} = usePage();
 
     return (
-        <Element
-            id={id}
-        >
-            <Brand/>
+        <Element id={id}>
             {children}
         </Element>
     );

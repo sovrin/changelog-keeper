@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Toggle from './header/Toggle';
-import Controls from './header/Controls';
 import {Breakpoint} from '../../hooks/useTheme';
 
 const Element = styled('div')`
@@ -11,11 +9,7 @@ const Element = styled('div')`
     top: 0;
     z-index: 100;
     
-    @media (max-width: ${Breakpoint.MD}) {
-        backdrop-filter: blur(5px);
-        background: rgba(246, 247, 248, 0.65);
-        left: 0
-    }
+  
 `;
 
 /**
@@ -25,9 +19,7 @@ const Element = styled('div')`
  */
 const Header = ({children}) => (
     <Element>
-        <Toggle/>
         {children}
-        <Controls/>
     </Element>
 );
 

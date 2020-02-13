@@ -3,6 +3,8 @@ import Page from '../atoms/Page';
 import Provider from '../../contexts/Changelog';
 import Changelog from '../organisms/Changelog';
 import Content from '../templates/Content';
+import Header from '../templates/Header';
+import Controls from './Changelog/Header/Controls';
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
@@ -16,6 +18,9 @@ export default () => {
                 <Content>
                     <Changelog/>
                 </Content>
+                <Header>
+                    <Controls/>
+                </Header>
             </Page>
         </Provider>
     );

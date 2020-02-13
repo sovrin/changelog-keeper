@@ -3,16 +3,19 @@ import {Content as Target} from '@thomann/spectre-react-components/OffCanvas';
 import Container from '@thomann/spectre-react-components/Container';
 import styled from 'styled-components';
 import {Breakpoint} from '../../hooks/useTheme';
+import Header from './Header';
 
 const Element = styled(Target)`
     flex: 1 1 auto;
     padding: 0 !important;
     
-    @media (max-width: ${Breakpoint.MD}) {
-
-        width: 100%;
-        margin-top: calc(var(--unit-10) * 2);
-    }
+    
+     ${Header} & {
+        @media (max-width: ${Breakpoint.MD}) {
+            width: 100%;
+            margin-top: calc(var(--unit-10) * 2);
+        }
+   }
 `;
 
 /**

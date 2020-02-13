@@ -15,6 +15,8 @@ import Create from '../organisms/modals/release/Create';
  */
 const Releases = ({releases}) => {
     const {dispatch, head} = useChangelog();
+    console.info(head);
+
     const [showModal] = useModal.default(Create);
 
     const addRelease = () => {
@@ -27,11 +29,23 @@ const Releases = ({releases}) => {
 
     };
 
+    const children = releases.map(release => {
+        const {version: {raw}} = release;
+
+        return (
+            <Release
+                key={raw}
+                head={release === head}
+                {...release}
+            />
+        );
+    });
+
     return (
         <div className="releases">
             <Button onClick={addRelease}>add release</Button>
 
-            {releases.map(Release)}
+            {children}
         </div>
     );
 };

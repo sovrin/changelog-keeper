@@ -1,10 +1,8 @@
 import React from 'react';
-import {Button, Icon} from '@thomann/spectre-react-components';
 import {Action} from '../../reducers/changelog';
 import useChangelog from '../../hooks/useChangelog';
-import useEditable from '../../hooks/useEditable';
 import styled from 'styled-components';
-import Markdown from './Markdown';
+import Editable from './Editable';
 
 const Element = styled('div')`
     display: flex;
@@ -18,7 +16,6 @@ const Element = styled('div')`
  */
 const Description = ({children}) => {
     const {dispatch} = useChangelog();
-    const [Editable, toggle] = useEditable(children, Markdown);
 
     const handleChange = () => {
         dispatch({type: Action.EDIT_DESCRIPTION, value: 'NEW DESCRIPTION'});
@@ -26,17 +23,9 @@ const Description = ({children}) => {
 
     return (
         <Element className="description">
-            <Editable />
-
-            <Button
-                onClick={toggle}
-                size={Button.Size.SMALL}
-                action
-            >
-                <Icon
-                    type={Icon.Type.EDIT}
-                />
-            </Button>
+            <Editable>
+                {children}
+            </Editable>
         </Element>
     );
 };

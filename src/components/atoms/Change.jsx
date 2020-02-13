@@ -9,7 +9,7 @@ import Entries from '../molecules/Entries';
  * @returns {*}
  * @constructor
  */
-const Change = ({children, type, entries}) => {
+const Change = ({children, type, entries, edit}) => {
     const {dispatch} = useChangelog();
 
     const addEntry = () => {
@@ -26,7 +26,9 @@ const Change = ({children, type, entries}) => {
             <Entries entries={entries}/>
             {children}
 
-            <Button onClick={() => alert('asd')}>new entry</Button>
+            {(edit) && (
+                <Button onClick={() => alert('asd')}>new entry</Button>
+            )}
         </div>
     );
 };

@@ -14,7 +14,7 @@ import Version from './Version';
  * @returns {*}
  * @constructor
  */
-const Release = ({children, changes, version, date}) => {
+const Release = ({children, changes, version, date, head}) => {
     const {raw} = version;
 
     return (
@@ -26,7 +26,11 @@ const Release = ({children, changes, version, date}) => {
                 <Version>{raw}</Version> - <Timestamp date={date}/>
             </h2>
             {children}
-            <Changes changes={changes}/>
+
+            <Changes
+                changes={changes}
+                edit={head}
+            />
         </Menu>
     );
 };

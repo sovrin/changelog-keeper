@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 import snarkdown from 'snarkdown';
 
 const LINK = /href="(.*?)"/g;
@@ -42,9 +42,11 @@ const Markdown = ({children}) => {
         setHtml(html);
     }, [children]);
 
-    return (
-        <div dangerouslySetInnerHTML={{__html: html}}/>
-    );
+    return html;
+    //
+    // return (
+        // <div dangerouslySetInnerHTML={{__html: html}}/>
+    // );
 };
 
 /**

@@ -10,7 +10,7 @@ import useChangelog from '../../hooks/useChangelog';
  * @returns {*}
  * @constructor
  */
-const Changes = ({changes}) => {
+const Changes = ({changes, edit}) => {
     const children = [];
     const {dispatch} = useChangelog();
 
@@ -34,6 +34,7 @@ const Changes = ({changes}) => {
                 key={type}
                 type={type}
                 entries={entries}
+                edit={edit}
             />
         );
 

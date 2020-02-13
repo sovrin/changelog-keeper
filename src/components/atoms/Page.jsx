@@ -10,7 +10,10 @@ import Provider from '../../contexts/Page';
 import useTheme from '../../hooks/useTheme';
 
 const Element = styled(OffCanvas)`
-    min-height: 100vh
+    min-height: 100vh;
+    
+    
+   
 `;
 
 /**
@@ -37,21 +40,28 @@ const Page = ({children}) => {
         <Provider>
             <Element
                 className={className}
+                {...data}
                 sidebar
             >
-                <Header>
-                    {header}
-                </Header>
+                {(header) && (
+                    <Header>
+                        {header}
+                    </Header>
+                )}
 
-                <Sidebar>
-                    {sidebar}
-                </Sidebar>
+                {(sidebar) && (
+                    <Sidebar>
+                        {sidebar}
+                    </Sidebar>
+                )}
 
                 <Overlay/>
 
-                <Content>
-                    {content}
-                </Content>
+                {(content) && (
+                    <Content>
+                        {content}
+                    </Content>
+                )}
             </Element>
         </Provider>
     );

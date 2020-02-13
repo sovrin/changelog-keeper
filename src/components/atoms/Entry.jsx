@@ -1,4 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
+import Editable from './Editable';
+
+const Element = styled('li')`
+    display: flex;
+`;
 
 /**
  *
@@ -6,9 +12,16 @@ import React from 'react';
  * @returns {*}
  * @constructor
  */
-const Entry = ({title}) => (
-    <li key={title}>{title}</li>
-);
+const Entry = ({title}) => {
+
+    return (
+        <Element key={title}>
+            <Editable>
+                {title}
+            </Editable>
+        </Element>
+    );
+};
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
