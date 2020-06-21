@@ -1,13 +1,25 @@
-const path = require('path');
+const {resolve} = require('path');
+
+const ROOT = resolve(__dirname, '..');
+const SRC = resolve(ROOT, 'src');
+const APP = resolve(ROOT, 'app');
+const COMPONENTS = resolve(SRC, 'components');
+const HOOKS = resolve(SRC, 'hooks');
+const REDUCERS = resolve(SRC, 'reducers');
+const CONTEXTS = resolve(SRC, 'contexts');
+const ASSETS = resolve(APP, 'assets');
+
+const utils = resolve(SRC, 'utils.js');
+const main = resolve(SRC, 'index.js');
 
 module.exports = {
     entry: {
-        main: path.resolve(__dirname, '../src/index.js')
+        main
     },
     output: {
         filename: '[name].bundle.js',
         chunkFilename: '[name].bundle.js',
-        path: path.resolve(__dirname, '../app/assets/'),
+        path: ASSETS,
         publicPath: '/',
     },
     optimization: {
@@ -34,6 +46,13 @@ module.exports = {
         ],
     },
     resolve: {
+        alias: {
+            utils,
+            components: COMPONENTS,
+            hooks: HOOKS,
+            reducers: REDUCERS,
+            contexts: CONTEXTS,
+        },
         modules: ['src', 'node_modules'],
         extensions: ['.js', '.jsx'],
     },

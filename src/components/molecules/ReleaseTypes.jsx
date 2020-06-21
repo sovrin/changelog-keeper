@@ -1,7 +1,7 @@
 import React from 'react';
-import {Type} from '../../hooks/useSemVer';
 import Button from '@thomann/spectre-react-components/Button';
 import Group from '@thomann/spectre-react-components/Group';
+import {Type} from 'hooks/useSemVer';
 
 /**
  *

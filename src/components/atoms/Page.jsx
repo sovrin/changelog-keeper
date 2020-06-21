@@ -1,11 +1,12 @@
 import React, {Children} from 'react';
 import styled from 'styled-components';
 import OffCanvas from '@thomann/spectre-react-components/OffCanvas';
-import Provider from '../../contexts/Page';
-import useTheme from '../../hooks/useTheme';
+import Provider from 'contexts/Page';
+import useTheme from 'hooks/useTheme';
 
 const Element = styled(OffCanvas)`
-    min-height: 100vh
+    min-height: 100vh;
+    background: var(--white);
 `;
 
 /**

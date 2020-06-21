@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Context} from '../contexts/Page';
+import {Context} from 'contexts/Page';
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>

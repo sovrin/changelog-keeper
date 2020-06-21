@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Breakpoint} from '../../hooks/useTheme';
 import Container from '@thomann/spectre-react-components/Container';
+import {Breakpoint} from 'hooks/useTheme';
 
 const Element = styled('div')`
     height: calc(var(--unit-9) + 2rem);

@@ -2,8 +2,8 @@ import React from 'react';
 import {Button} from '@thomann/spectre-react-components';
 import styled from 'styled-components';
 import Icon from '@thomann/spectre-react-components/Icon';
-import {Action} from '../../reducers/changelog';
-import useChangelog from '../../hooks/useChangelog';
+import {Action} from 'reducers/changelog';
+import useChangelog from 'hooks/useChangelog';
 
 const H1 = styled('h1')`
     display: flex;

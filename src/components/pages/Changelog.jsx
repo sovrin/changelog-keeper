@@ -1,8 +1,8 @@
 import React from 'react';
 import Page from '../atoms/Page';
-import Provider from '../../contexts/Changelog';
-import Changelog from '../organisms/Changelog';
-import Content from '../templates/Content';
+import Provider from 'contexts/Changelog';
+import Changelog from 'components/organisms/Changelog';
+import Content from 'components/templates/Content';
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '@thomann/spectre-react-components/Button';
 import {useUtility} from '@thomann/spectre-react-components/hooks';
-import {Breakpoint} from '../../../hooks/useTheme';
+import {Breakpoint} from 'hooks/useTheme';
 
 const {Display, default: utility} = useUtility;
 

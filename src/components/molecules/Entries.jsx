@@ -1,5 +1,5 @@
 import React from 'react';
-import Entry from '../atoms/Entry';
+import Entry from 'components/atoms/Entry';
 
 /**
  *

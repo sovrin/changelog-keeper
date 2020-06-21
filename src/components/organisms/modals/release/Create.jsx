@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import Prompt from '../Prompt';
-import Hint from '../../../atoms/Hint';
-import ReleaseTypes from '../../../molecules/ReleaseTypes';
-import SemVer from '../../../molecules/SemVer';
-import useSemVer from '../../../../hooks/useSemVer';
-import useI18n from '../../../../hooks/useI18n';
+import Hint from 'components/atoms/Hint';
+import ReleaseTypes from 'components/molecules/ReleaseTypes';
+import SemVer from 'components/molecules/SemVer';
+import useSemVer from 'hooks/useSemVer';
+import useI18n from 'hooks/useI18n';
 
 const Element = styled('div')`
     display: flex;

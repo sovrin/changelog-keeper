@@ -1,6 +1,6 @@
 import React from 'react';
-import Version from '../atoms/Version';
 import styled from 'styled-components';
+import Version from 'components/atoms/Version';
 
 const Element = styled('h1')`
     margin: 0;

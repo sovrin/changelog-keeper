@@ -1,8 +1,8 @@
 import React from 'react';
-import Change from '../atoms/Change';
 import {Change as Entry} from 'keep-a-changelog';
-import {Action} from '../../reducers/changelog';
-import useChangelog from '../../hooks/useChangelog';
+import Change from 'components/atoms/Change';
+import {Action} from 'reducers/changelog';
+import useChangelog from 'hooks/useChangelog';
 
 /**
  *

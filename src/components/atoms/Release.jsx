@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from '@thomann/spectre-react-components/Menu';
-import Changes from '../molecules/Changes';
+import Changes from 'components/molecules/Changes';
 import Timestamp from './Timestamp';
 import Version from './Version';
 

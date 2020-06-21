@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@thomann/spectre-react-components/Button';
 import Modal, {Container, Body, Footer, Header, Overlay} from '@thomann/spectre-react-components/Modal';
 import Group from '@thomann/spectre-react-components/Group';
-import useI18n from '../../../hooks/useI18n';
+import useI18n from 'hooks/useI18n';
 
 /**
  *

@@ -1,5 +1,5 @@
 import React, {createContext, useEffect, useState} from 'react';
-import useUnique from '../hooks/useUnique';
+import useUnique from 'hooks/useUnique';
 
 export const Context = createContext(null);
 const {Provider} = Context;
@@ -17,8 +17,9 @@ export default ({children}) => {
     };
 
     useEffect(() => {
-        const unique = useUnique();
-        setId(unique);
+        const build = useUnique();
+
+        setId(build());
     }, []);
 
     return (

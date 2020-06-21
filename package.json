@@ -7,11 +7,8 @@
     "react-dom": "^16.13.1"
   },
   "scripts": {
-    "start": "webpack -p --config=configs/webpack.dev.js --watch",
     "build": "webpack -p --config=configs/webpack.prod.js",
     "dev": "npx webpack-dev-server --config configs/webpack.dev.js --port 8080 --host 0.0.0.0",
-    "webpack": "webpack --progress",
-    "test": "react-scripts test",
     "server": "npx micro ./src/dev.js"
   },
   "browserslist": {

@@ -1,8 +1,8 @@
 import React from 'react';
-import Title from '../atoms/Title';
-import Description from '../atoms/Description';
-import Releases from '../molecules/Releases';
-import useChangelog from '../../hooks/useChangelog';
+import Title from 'components/atoms/Title';
+import Description from 'components/atoms/Description';
+import Releases from 'components/molecules/Releases';
+import useChangelog from 'hooks/useChangelog';
 
 /**
  *

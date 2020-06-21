@@ -1,8 +1,8 @@
 import React from 'react';
 import {Button, Icon} from '@thomann/spectre-react-components';
-import {Action} from '../../reducers/changelog';
-import useChangelog from '../../hooks/useChangelog';
-import useEditable from '../../hooks/useEditable';
+import {Action} from 'reducers/changelog';
+import useChangelog from 'hooks/useChangelog';
+import useEditable from 'hooks/useEditable';
 import styled from 'styled-components';
 import Markdown from './Markdown';
 

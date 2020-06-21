@@ -2,8 +2,8 @@ import React from 'react';
 import {Toggle as Target} from '@thomann/spectre-react-components/OffCanvas';
 import {Icon} from '@thomann/spectre-react-components';
 import styled from 'styled-components';
-import usePage from '../../../hooks/usePage';
-import {Breakpoint} from '../../../hooks/useTheme';
+import usePage from 'hooks/usePage';
+import {Breakpoint} from 'hooks/useTheme';
 
 const Element = styled(Target)`
     font-size: var(--unit-5);

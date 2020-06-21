@@ -1,6 +1,6 @@
-import React, {createContext, useReducer, useEffect, useCallback, useMemo, useState} from 'react';
-import reducer, {Action} from '../reducers/changelog';
-import useBackend from '../hooks/useBackend';
+import React, {createContext, useReducer, useEffect} from 'react';
+import reducer, {Action} from 'reducers/changelog';
+import useBackend from 'hooks/useBackend';
 
 export const Context = createContext(null);
 const {Provider} = Context;

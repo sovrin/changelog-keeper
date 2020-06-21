@@ -78,10 +78,11 @@ export default (seed = null) => {
      * @param charset
      * @returns {string}
      */
-    return [...Array(LENGTH)]
-        .map(next)
-        .map((n) => upper(n * LEN))
-        .map((n) => CHARSET[n % CHARSET.length])
-        .join('')
-    ;
+    return () => (
+        [...Array(LENGTH)]
+            .map(next)
+            .map((n) => upper(n * LEN))
+            .map((n) => CHARSET[n % CHARSET.length])
+            .join('')
+    );
 };

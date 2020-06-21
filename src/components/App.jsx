@@ -4,9 +4,9 @@ import Modals from '@thomann/spectre-react-components/Modals';
 import 'spectre.css';
 import 'spectre.css/dist/spectre-icons.min.css';
 import 'spectre.css/dist/spectre-exp.min.css';
-import Router from '../contexts/Router';
-import I18n from '../contexts/I18n';
-import Backend from '../contexts/Backend';
+import Router from 'contexts/Router';
+import I18n from 'contexts/I18n';
+import Backend from 'contexts/Backend';
 import routes from '../routes';
 
 /**

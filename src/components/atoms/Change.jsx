@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button} from '@thomann/spectre-react-components';
-import useChangelog from '../../hooks/useChangelog';
-import Entries from '../molecules/Entries';
+import useChangelog from 'hooks/useChangelog';
+import Entries from 'components/molecules/Entries';
 
 /**
  *

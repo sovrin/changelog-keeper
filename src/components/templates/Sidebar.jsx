@@ -1,7 +1,7 @@
 import React from 'react';
 import {Sidebar as Target} from '@thomann/spectre-react-components/OffCanvas';
 import styled from 'styled-components';
-import usePage from '../../hooks/usePage';
+import usePage from 'hooks/usePage';
 import Brand from './sidebar/Brand';
 
 const Element = styled(Target)`

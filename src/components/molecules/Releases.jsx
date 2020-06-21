@@ -2,10 +2,10 @@ import React, {useEffect} from 'react';
 import Button from '@thomann/spectre-react-components/Button';
 import {useModal} from '@thomann/spectre-react-components/hooks';
 // import {Release as Entry} from 'keep-a-changelog';
-import Release from '../atoms/Release';
+import Release from 'components/atoms/Release';
 // import {Action} from '../reducers/changelog';
-import useChangelog from '../../hooks/useChangelog';
-import Create from '../organisms/modals/release/Create';
+import useChangelog from 'hooks/useChangelog';
+import Create from 'components/organisms/modals/release/Create';
 
 /**
  *

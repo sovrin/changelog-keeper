@@ -2,7 +2,7 @@ import React from 'react';
 import {Content as Target} from '@thomann/spectre-react-components/OffCanvas';
 import Container from '@thomann/spectre-react-components/Container';
 import styled from 'styled-components';
-import {Breakpoint} from '../../hooks/useTheme';
+import {Breakpoint} from 'hooks/useTheme';
 
 const Element = styled(Target)`
     flex: 1 1 auto;

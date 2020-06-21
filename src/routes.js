@@ -1,5 +1,5 @@
 import React from 'react';
-import Changelog from './components/pages/Changelog';
+import Changelog from 'components/pages/Changelog';
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>

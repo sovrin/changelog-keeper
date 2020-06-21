@@ -1,5 +1,5 @@
 import React from 'react';
-import useMysqlDate from '../../hooks/useMysqlDate';
+import useMysqlDate from 'hooks/useMysqlDate';
 
 /**
  *

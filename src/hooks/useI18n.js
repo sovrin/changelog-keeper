@@ -1,5 +1,5 @@
 import {useContext, useMemo} from 'react';
-import {Context as I18n} from '../contexts/I18n';
+import {Context as I18n} from 'contexts/I18n';
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>

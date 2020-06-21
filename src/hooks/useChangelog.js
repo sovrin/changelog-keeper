@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Context} from '../contexts/Changelog';
+import {Context} from 'contexts/Changelog';
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>

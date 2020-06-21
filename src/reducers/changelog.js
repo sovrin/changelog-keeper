@@ -1,4 +1,5 @@
 import {parser} from 'keep-a-changelog';
+import useUnique from '../hooks/useUnique';
 
 export const Action = {
     ADD_RELEASE: 'add_release',
