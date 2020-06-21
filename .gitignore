@@ -1,8 +1,13 @@
 /.idea
 /node_modules
+/app/assets/*
+!/app/assets/neutralino.js
 
 CHANGELOG.md
 
 package-lock.json
+
+changelog-keeper-*
+
 
 !/**/.gitkeep

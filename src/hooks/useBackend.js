@@ -8,10 +8,12 @@ import {Context as Backend} from '../contexts/Backend';
  */
 export default () => {
     const [source, setSource] = useState(null);
-    const {readLog} = useContext(Backend);
+    const {read} = useContext(Backend);
 
     useEffect(() => {
-        readLog().then(setSource);
+        read('CHANGELOG.md')
+            .then(setSource)
+        ;
     }, []);
 
     return {

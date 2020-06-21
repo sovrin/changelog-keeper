@@ -1,21 +1,14 @@
-const {readFileSync} = require('fs');
-const {resolve} = require('path');
+import * as neutralino from './adapters/neutralino';
+import * as micro from './adapters/micro';
 
-/**
- *
- * @returns {undefined|*}
- */
-const readLog = () => {
-    const file = resolve(process.cwd(), 'CHANGELOG.md');
-
-    return readFileSync(file, 'UTF-8');
-};
+const backend = (window.NL_MODE)
+    ? neutralino
+    : micro
+;
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
- * Date: 23.09.2019
- * Time: 21:01
+ * Date: 18.06.2020
+ * Time: 21:06
  */
-module.exports = {
-    readLog,
-};
+export default backend;
