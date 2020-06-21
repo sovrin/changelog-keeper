@@ -1,44 +1,61 @@
 {
   "name": "changelog-keeper",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "set \"BROWSER=./carlo/cli.js\" && npm start",
-    "start": "react-scripts start"
-  },
-  "bin": {
-    "tcl": "index.js"
-  },
-  "carlo": {
-    "index": "./src/backend.js"
-  },
-  "author": "",
-  "license": "MIT",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "carlo": "^0.9.46",
-    "keep-a-changelog": "^0.9.1"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "scripts": {
+    "start": "webpack -p --config=configs/webpack.dev.js --watch",
+    "build": "webpack -p --config=configs/webpack.prod.js",
+    "dev": "npx webpack-dev-server --config configs/webpack.dev.js --port 8080 --host 0.0.0.0",
+    "webpack": "webpack --progress",
+    "test": "react-scripts test",
+    "server": "npx micro ./src/dev.js"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
-    "@npm-chrome-extensions/react-devtools": "^3.4.2-dev.1",
+    "@babel/core": "^7.10.3",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
     "@thomann/spectre-react-components": "^0.1.7",
-    "immer": "^5.3.4",
-    "nodemon": "^2.0.2",
+    "babel-loader": "8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.6.0",
+    "html-webpack-plugin": "^4.3.0",
+    "immer": "^7.0.3",
+    "keep-a-changelog": "^0.10.1",
+    "micro": "^9.3.4",
+    "micro-r": "^1.1.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prop-types": "latest",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "^3.3.1",
-    "semver": "^7.1.2",
+    "react-hot-loader": "^4.12.21",
+    "semver": "^7.3.2",
     "snarkdown": "^1.2.2",
     "spectre.css": "^0.5.8",
-    "styled-components": "^5.0.1",
-    "use-immer": "^0.3.5"
+    "style-loader": "^1.2.1",
+    "styled-components": "^5.1.1",
+    "terser-webpack-plugin": "^3.0.6",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "use-immer": "^0.4.0",
+    "webpack": "^5.0.0-beta.17",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
   }
 }

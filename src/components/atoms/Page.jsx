@@ -1,11 +1,6 @@
 import React, {Children} from 'react';
 import styled from 'styled-components';
 import OffCanvas from '@thomann/spectre-react-components/OffCanvas';
-import {useClassName} from '@thomann/spectre-react-components/hooks';
-import Header from '../templates/Header';
-import Sidebar from '../templates/Sidebar';
-import Overlay from '../templates/Overlay';
-import Content from '../templates/Content';
 import Provider from '../../contexts/Page';
 import useTheme from '../../hooks/useTheme';
 
@@ -19,39 +14,27 @@ const Element = styled(OffCanvas)`
  * @constructor
  */
 const Page = ({children}) => {
-    useTheme();
-
-    const className = useClassName('page');
     const data = {};
 
     Children.forEach(children, (child) => {
-        const {type: {name}} = child;
-        const key = name.toLowerCase();
+        const {type: {name, displayName}} = child;
+        let key = displayName || name;
+        key = key.toLowerCase();
 
         data[key] = child;
     });
 
-    const {header, sidebar, content} = data;
+    const {header, sidebar, content, overlay} = data;
+
+    useTheme();
 
     return (
         <Provider>
-            <Element
-                className={className}
-                sidebar
-            >
-                <Header>
-                    {header}
-                </Header>
-
-                <Sidebar>
-                    {sidebar}
-                </Sidebar>
-
-                <Overlay/>
-
-                <Content>
-                    {content}
-                </Content>
+            <Element sidebar>
+                {header}
+                {sidebar}
+                {overlay}
+                {content}
             </Element>
         </Provider>
     );
