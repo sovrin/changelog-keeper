@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Toggle from './header/Toggle';
-import Controls from './header/Controls';
 import {Breakpoint} from '../../hooks/useTheme';
+import Container from '@thomann/spectre-react-components/Container';
 
 const Element = styled('div')`
     height: calc(var(--unit-9) + 2rem);
@@ -25,9 +24,9 @@ const Element = styled('div')`
  */
 const Header = ({children}) => (
     <Element>
-        <Toggle/>
-        {children}
-        <Controls/>
+        <Container size={Container.Size.LARGE}>
+            {children}
+        </Container>
     </Element>
 );
 

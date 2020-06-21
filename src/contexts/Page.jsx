@@ -1,5 +1,5 @@
 import React, {createContext, useEffect, useState} from 'react';
-import {eid} from '../utils';
+import useUnique from '../hooks/useUnique';
 
 export const Context = createContext(null);
 const {Provider} = Context;
@@ -17,7 +17,8 @@ export default ({children}) => {
     };
 
     useEffect(() => {
-        setId(eid());
+        const unique = useUnique();
+        setId(unique);
     }, []);
 
     return (
