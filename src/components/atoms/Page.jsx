@@ -1,13 +1,7 @@
 import React, {Children} from 'react';
-import styled from 'styled-components';
-import OffCanvas from '@thomann/spectre-react-components/OffCanvas';
 import Provider from 'contexts/Page';
 import useTheme from 'hooks/useTheme';
-
-const Element = styled(OffCanvas)`
-    min-height: 100vh;
-    background: var(--white);
-`;
+import Root from 'styles/atoms/Page.style';
 
 /**
  *
@@ -31,12 +25,12 @@ const Page = ({children}) => {
 
     return (
         <Provider>
-            <Element sidebar>
+            <Root sidebar>
                 {header}
                 {sidebar}
                 {overlay}
                 {content}
-            </Element>
+            </Root>
         </Provider>
     );
 };

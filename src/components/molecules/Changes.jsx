@@ -3,6 +3,7 @@ import {Change as Entry} from 'keep-a-changelog';
 import Change from 'components/atoms/Change';
 import {Action} from 'reducers/changelog';
 import useChangelog from 'hooks/useChangelog';
+import usePath from 'hooks/usePath';
 
 /**
  *
@@ -10,14 +11,12 @@ import useChangelog from 'hooks/useChangelog';
  * @returns {*}
  * @constructor
  */
-const Changes = ({changes}) => {
+const Changes = ({changes, path}) => {
     const children = [];
     const {dispatch} = useChangelog();
 
     const addChange = () => {
-        const entry = new Entry('2.0.0', new Date() , 'foobar');
 
-        dispatch({type: Action.ADD_RELEASE, value: entry});
     };
 
     const removeChange = () => {
@@ -29,15 +28,18 @@ const Changes = ({changes}) => {
             continue;
         }
 
-        const change = (
+        const context = usePath('changes', type, path);
+
+        const build = (
             <Change
                 key={type}
                 type={type}
                 entries={entries}
+                path={context}
             />
         );
 
-        children.push(change);
+        children.push(build);
     }
 
     return (

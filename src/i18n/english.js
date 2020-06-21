@@ -15,6 +15,7 @@ export default {
         MAJOR: 'contains incompatible API changes',
         MINOR: 'adds backwards compatible functions',
         PATCH: 'adds backwards compatible fixes',
+        ADD:'add release'
     },
     MODAL: {
         CREATE: {

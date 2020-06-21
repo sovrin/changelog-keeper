@@ -8,6 +8,7 @@ const HOOKS = resolve(SRC, 'hooks');
 const REDUCERS = resolve(SRC, 'reducers');
 const CONTEXTS = resolve(SRC, 'contexts');
 const ASSETS = resolve(APP, 'assets');
+const STYLES = resolve(SRC, 'styles');
 
 const utils = resolve(SRC, 'utils.js');
 const main = resolve(SRC, 'index.js');
@@ -52,6 +53,7 @@ module.exports = {
             hooks: HOOKS,
             reducers: REDUCERS,
             contexts: CONTEXTS,
+            styles: STYLES,
         },
         modules: ['src', 'node_modules'],
         extensions: ['.js', '.jsx'],

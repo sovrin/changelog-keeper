@@ -1,15 +1,10 @@
 import React from 'react';
-import {Button} from '@thomann/spectre-react-components';
-import styled from 'styled-components';
 import Icon from '@thomann/spectre-react-components/Icon';
 import {Action} from 'reducers/changelog';
 import useChangelog from 'hooks/useChangelog';
-
-const H1 = styled('h1')`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-`;
+import Root, {Text, Edit} from 'styles/atoms/Title.style';
+import {Button} from '@thomann/spectre-react-components';
+import {Delete} from '../../styles/atoms/Release.style';
 
 /**
  *
@@ -24,20 +19,20 @@ const Title = ({children}) => {
      *
      */
     const handleChange = () => {
-        dispatch({type: Action.EDIT_TITLE, value: 'NEW TITLE'});
+        dispatch({action: Action.EDIT_TITLE, value: 'NEW TITLE'});
     };
 
     return (
-        <H1 className="title">
-            {children}
-            <Button
+        <Root>
+            <Text>{children}</Text>
+            <Edit
                 onClick={handleChange}
-                link
+                size={Button.Size.SMALL}
                 action
             >
                 <Icon type={Icon.Type.EDIT}/>
-            </Button>
-        </H1>
+            </Edit>
+        </Root>
     );
 };
 

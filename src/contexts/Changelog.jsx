@@ -31,7 +31,7 @@ export default ({children}) => {
             return;
         }
 
-        dispatch({type: Action.SET_CHANGELOG, value: source});
+        dispatch({action: Action.SET_CHANGELOG, value: source});
     }, [source]);
 
     return (

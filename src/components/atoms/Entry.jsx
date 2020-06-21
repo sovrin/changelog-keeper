@@ -7,7 +7,7 @@ import React from 'react';
  * @constructor
  */
 const Entry = ({title}) => (
-    <li key={title}>{title}</li>
+    <li>{title}</li>
 );
 
 /**

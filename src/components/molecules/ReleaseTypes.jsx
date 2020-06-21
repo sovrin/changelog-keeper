@@ -13,21 +13,19 @@ import {Type} from 'hooks/useSemVer';
 const ReleaseTypes = ({current, onClick}) => {
     const types = Object.values(Type);
 
-    const buttons = types.map((type) => {
-        return (
-            <Button
-                key={type}
-                onClick={() => onClick(type)}
-                primary={current === type}
-            >
-                {type}
-            </Button>
-        );
-    });
+    const children = types.map((type) => (
+        <Button
+            key={type}
+            onClick={() => onClick(type)}
+            primary={current === type}
+        >
+            {type}
+        </Button>
+    ));
 
     return (
         <Group>
-            {buttons}
+            {children}
         </Group>
     );
 };

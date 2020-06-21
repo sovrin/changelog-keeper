@@ -1,8 +1,12 @@
 import React from 'react';
-import Menu from '@thomann/spectre-react-components/Menu';
+import {Icon, Button} from '@thomann/spectre-react-components';
 import Changes from 'components/molecules/Changes';
+import usePath from 'hooks/usePath';
 import Timestamp from './Timestamp';
 import Version from './Version';
+import Root, {Delete} from 'styles/atoms/Release.style';
+import useInterpreter from '../../hooks/useInterpreter';
+import Eval from './Eval';
 
 /**
  *
@@ -11,23 +15,35 @@ import Version from './Version';
  * @param changes
  * @param version
  * @param date
+ * @param i
  * @returns {*}
  * @constructor
  */
-const Release = ({children, changes, version, date}) => {
+const Release = ({children, changes, version, date}, i) => {
     const {raw} = version;
+    const path = usePath('releases', i);
+    const {isLocked} = useInterpreter(path);
 
     return (
-        <Menu
-            key={raw}
-            className="release"
-        >
+        <Root key={raw}>
+            <Eval test={!isLocked}>
+                <Delete
+                    // onClick={onClick}
+                    size={Button.Size.SMALL}
+                    action
+                >
+                    <Icon type={Icon.Type.DELETE}/>
+                </Delete>
+            </Eval>
             <h2>
                 <Version>{raw}</Version> - <Timestamp date={date}/>
             </h2>
             {children}
-            <Changes changes={changes}/>
-        </Menu>
+            <Changes
+                changes={changes}
+                path={path}
+            />
+        </Root>
     );
 };
 

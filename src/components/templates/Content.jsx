@@ -1,19 +1,6 @@
 import React from 'react';
-import {Content as Target} from '@thomann/spectre-react-components/OffCanvas';
 import Container from '@thomann/spectre-react-components/Container';
-import styled from 'styled-components';
-import {Breakpoint} from 'hooks/useTheme';
-
-const Element = styled(Target)`
-    flex: 1 1 auto;
-    padding: 0 !important;
-    
-    @media (max-width: ${Breakpoint.MD}) {
-
-        width: 100%;
-        margin-top: calc(var(--unit-10) * 2);
-    }
-`;
+import Root from 'styles/templates/Content.style';
 
 /**
  *
@@ -21,11 +8,11 @@ const Element = styled(Target)`
  * @constructor
  */
 const Content = ({children}) => (
-    <Element>
+    <Root>
         <Container size={Container.Size.MEDIUM}>
             {children}
         </Container>
-    </Element>
+    </Root>
 );
 
 /**

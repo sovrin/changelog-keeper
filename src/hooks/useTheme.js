@@ -5,6 +5,22 @@ export const Breakpoint = {
     SM: '600px',
 };
 
+export const Color = {
+    WHITE: '#eceff4',
+    GREY: '#d8dee9',
+    BLACK_L: '#434C5E',
+    BLACK: '#3b4252',
+    BLACK_D: '#2e3440',
+    GRAY: '#c6c6c6',
+    GREEN: '#a3be8c',
+    BLUE: '#5e81ac',
+    PINK: '#b48ead',
+    RED: '#bf616a',
+    ORANGE: '#d08770',
+    YELLOW: '#ebcb8b',
+    ACCENT: 'var(--blue)',
+};
+
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
  * Date: 04.02.2020
@@ -13,19 +29,19 @@ export const Breakpoint = {
 export default () => {
 
     const theme = {
-        'white': '#eceff4',
-        'grey': '#d8dee9',
-        'black-l': '#434C5E',
-        'black': '#3b4252',
-        'black-d': '#2e3440',
-        'gray': '#c6c6c6',
-        'green': '#a3be8c',
-        'blue': '#5e81ac',
-        'pink': '#b48ead',
-        'red': '#bf616a',
-        'orange': '#d08770',
-        'yellow': '#ebcb8b',
-        'accent': 'var(--blue)',
+        'white': Color.WHITE,
+        'grey': Color.GREY,
+        'black-l': Color.BLACK_L,
+        'black': Color.BLACK,
+        'black-d': Color.BLACK_D,
+        'gray': Color.GRAY,
+        'green': Color.GREEN,
+        'blue': Color.BLUE,
+        'pink': Color.PINK,
+        'red': Color.RED,
+        'orange': Color.ORANGE,
+        'yellow': Color.YELLOW,
+        'accent': Color.ACCENT,
 
         'unit-o': '.05rem',
         'unit-h': '.1rem',

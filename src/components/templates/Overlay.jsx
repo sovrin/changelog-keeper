@@ -1,11 +1,5 @@
 import React from 'react';
-import {Overlay as Target} from '@thomann/spectre-react-components/OffCanvas';
-import styled from 'styled-components';
-
-const Element = styled(Target)`
-    backdrop-filter: blur(5px);
-    transition: all 5s ease ;
-`;
+import Root from 'styles/templates/Overlay.style';
 
 /**
  *
@@ -13,7 +7,7 @@ const Element = styled(Target)`
  * @constructor
  */
 const Overlay = () => (
-    <Element href='#close'/>
+    <Root href='#close'/>
 );
 
 /**

@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@thomann/spectre-react-components/Button';
 import Modal, {Container, Body, Footer, Header, Overlay} from '@thomann/spectre-react-components/Modal';
 import Group from '@thomann/spectre-react-components/Group';
-import useI18n from 'hooks/useI18n';
+import Snippet from 'components/atoms/Snippet';
 
 /**
  *
@@ -16,10 +16,6 @@ import useI18n from 'hooks/useI18n';
  * @constructor
  */
 const Prompt = ({className, children, onClose, onConfirm, title, label, loading}) => {
-    const {cancel} = useI18n({
-        cancel: 'common.cancel',
-    });
-
     const style = {
         'backdropFilter': 'blur(3px)',
     };
@@ -27,7 +23,7 @@ const Prompt = ({className, children, onClose, onConfirm, title, label, loading}
     /**
      *
      */
-    const onSubmit = () => onConfirm();
+    const onSubmit = () => onConfirm() && onClose();
 
     return (
         <Modal
@@ -47,7 +43,7 @@ const Prompt = ({className, children, onClose, onConfirm, title, label, loading}
                     <Group>
                         {(onConfirm) && (
                             <Button
-                                onClick={onConfirm}
+                                onClick={onSubmit}
                                 primary
                             >
                                 {label}
@@ -57,7 +53,7 @@ const Prompt = ({className, children, onClose, onConfirm, title, label, loading}
                             onClick={onClose}
                             error
                         >
-                            {cancel}
+                            <Snippet cursor="common.cancel"/>
                         </Button>
                     </Group>
                 </Footer>

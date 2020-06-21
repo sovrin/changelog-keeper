@@ -1,10 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import Version from 'components/atoms/Version';
-
-const Element = styled('h1')`
-    margin: 0;
-`;
+import Root from 'styles/molecules/SemVer.style';
 
 /**
  *
@@ -14,9 +10,9 @@ const Element = styled('h1')`
  * @constructor
  */
 const SemVer = ({current, next}) => (
-    <Element>
+    <Root>
         <Version>{current}</Version> &rarr; <Version>{next}</Version>
-    </Element>
+    </Root>
 );
 
 /**

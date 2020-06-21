@@ -1,12 +1,7 @@
 import React from 'react';
-import {Sidebar as Target} from '@thomann/spectre-react-components/OffCanvas';
-import styled from 'styled-components';
 import usePage from 'hooks/usePage';
 import Brand from './sidebar/Brand';
-
-const Element = styled(Target)`
-     width: 12rem
-`;
+import Root from 'styles/templates/Sidebar.style';
 
 /**
  *
@@ -18,12 +13,10 @@ const Sidebar = ({children}) => {
     const {id} = usePage();
 
     return (
-        <Element
-            id={id}
-        >
+        <Root id={id}>
             <Brand/>
             {children}
-        </Element>
+        </Root>
     );
 };
 

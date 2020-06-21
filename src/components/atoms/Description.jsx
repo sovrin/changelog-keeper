@@ -3,12 +3,8 @@ import {Button, Icon} from '@thomann/spectre-react-components';
 import {Action} from 'reducers/changelog';
 import useChangelog from 'hooks/useChangelog';
 import useEditable from 'hooks/useEditable';
-import styled from 'styled-components';
 import Markdown from './Markdown';
-
-const Element = styled('div')`
-    display: flex;
-`;
+import Root from 'styles/atoms/Description.style';
 
 /**
  *
@@ -21,11 +17,11 @@ const Description = ({children}) => {
     const [Editable, toggle] = useEditable(children, Markdown);
 
     const handleChange = () => {
-        dispatch({type: Action.EDIT_DESCRIPTION, value: 'NEW DESCRIPTION'});
+        dispatch({action: Action.EDIT_DESCRIPTION, value: 'NEW DESCRIPTION'});
     };
 
     return (
-        <Element className="description">
+        <Root>
             <Editable />
 
             <Button
@@ -37,7 +33,7 @@ const Description = ({children}) => {
                     type={Icon.Type.EDIT}
                 />
             </Button>
-        </Element>
+        </Root>
     );
 };
 

@@ -1,21 +1,23 @@
 import React from 'react';
-import Root from 'styles/atoms/Hint.style';
 
 /**
  *
  * @param children
+ * @param test
  * @returns {*}
  * @constructor
  */
-const Hint = ({children}) => (
-    <Root>
-        {children}
-    </Root>
-);
+const Eval = ({children, test}) => {
+    if (!test) {
+        return null;
+    }
+
+    return (children);
+};
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
  * Date: 21.06.2020
- * Time: 16:26
+ * Time: 19:37
  */
-export default Hint;
+export default Eval;

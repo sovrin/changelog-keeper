@@ -1,16 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
 import Prompt from '../Prompt';
 import Hint from 'components/atoms/Hint';
+import Snippet from 'components/atoms/Snippet';
 import ReleaseTypes from 'components/molecules/ReleaseTypes';
 import SemVer from 'components/molecules/SemVer';
 import useSemVer from 'hooks/useSemVer';
 import useI18n from 'hooks/useI18n';
-
-const Element = styled('div')`
-    display: flex;
-    flex-direction: column;
-`;
+import Root from 'styles/organisms/modals/release/Create.style';
 
 /**
  *
@@ -22,36 +18,42 @@ const Create = (props) => {
     const {version, onCreate} = props;
     const {bump, type, next, view} = useSemVer(version);
 
-    const {title, label, hint} = useI18n({
+    const {title, label} = useI18n({
         title: 'modal.create.title',
         label: 'common.create',
-        hint: `release.${type}`,
     });
+
+    /**
+     *
+     * @returns {*}
+     */
+    const onSubmit = () => {
+        return onCreate(view.next);
+    }
 
     return (
         <Prompt
             {...props}
             title={title}
             label={label}
-            onConfirm={() => {
-            }}
+            onConfirm={onSubmit}
         >
-
             <SemVer
                 current={view.current}
                 next={view.next}
+                type={type}
             />
 
-            <Element>
+            <Root>
                 <Hint>
-                    {hint}
+                    <Snippet cursor={`release.${type}`}/>
                 </Hint>
 
                 <ReleaseTypes
                     current={type}
                     onClick={bump}
                 />
-            </Element>
+            </Root>
         </Prompt>
     );
 };
