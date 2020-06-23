@@ -1,31 +1,32 @@
 import React from 'react';
 import {Icon, Button} from '@thomann/spectre-react-components';
 import Changes from 'components/molecules/Changes';
-import usePath from 'hooks/usePath';
 import Timestamp from './Timestamp';
+import Eval from './Eval';
 import Version from './Version';
 import Root, {Delete} from 'styles/atoms/Release.style';
-import useInterpreter from '../../hooks/useInterpreter';
-import Eval from './Eval';
+import useInterpreter from 'hooks/useInterpreter';
+import usePath from 'hooks/usePath';
+import useFolder from 'hooks/useFoldable';
 
 /**
  *
  * @param children
- * @param key
  * @param changes
  * @param version
  * @param date
- * @param i
+ * @param index
  * @returns {*}
  * @constructor
  */
-const Release = ({children, changes, version, date}, i) => {
+const Release = ({changes, version, date, index}) => {
     const {raw} = version;
-    const path = usePath('releases', i);
-    const {isLocked} = useInterpreter(path);
+    const path = usePath('releases', index);
+    const {isLocked, isHead} = useInterpreter(path);
+    const {onFold, Folder} = useFolder(isHead);
 
     return (
-        <Root key={raw}>
+        <Root>
             <Eval test={!isLocked}>
                 <Delete
                     // onClick={onClick}
@@ -35,14 +36,19 @@ const Release = ({children, changes, version, date}, i) => {
                     <Icon type={Icon.Type.DELETE}/>
                 </Delete>
             </Eval>
-            <h2>
-                <Version>{raw}</Version> - <Timestamp date={date}/>
+
+            <h2 onClick={onFold}>
+                <a>
+                    <Version>{raw}</Version> - <Timestamp date={date}/>
+                </a>
             </h2>
-            {children}
-            <Changes
-                changes={changes}
-                path={path}
-            />
+
+            <Folder>
+                <Changes
+                    changes={changes}
+                    path={path}
+                />
+            </Folder>
         </Root>
     );
 };

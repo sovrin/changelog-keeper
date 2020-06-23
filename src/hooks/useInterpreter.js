@@ -10,7 +10,10 @@ export default (path) => {
 
     const isLocked = (part === 'releases' && ~~release !== 0);
 
+    const isHead = (release < 3);
+
     return {
         isLocked,
+        isHead,
     };
 };
