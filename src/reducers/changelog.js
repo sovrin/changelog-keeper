@@ -58,6 +58,7 @@ const update = (state, path, updater) => {
 const convert = (state) => {
     const string = state.toString();
     const safe = string.replace(VERSION_REGEX, '## [$1]');
+
     return parser(safe);
 };
 
@@ -67,37 +68,83 @@ const convert = (state) => {
  * Time: 00:54
  */
 export default (state, {action, value, path}) => {
-    switch (action) {
-        case Action.ADD_RELEASE:
-            const {version, date, description} = value;
-            state.addRelease(new Release(version, date, description));
 
-            return convert(state);
+    /**
+     *
+     * @returns {*}
+     */
+    const addRelease = ({version, date, description}) => {
+        state.addRelease(new Release(version, date, description));
 
-        case Action.ADD_ENTRY:
-            state = update(state, path, (entries) => {
-                const {title, description} = value;
-                entries.push(new Change(title, description));
+        return state;
+    };
 
-                return state;
-            });
+    /**
+     *
+     */
+    const deleteRelease = () => {
 
-            return convert(state);
-        case Action.SET_CHANGELOG:
-            console.info(convert(value));
+    };
 
-            return convert(value);
+    /**
+     *
+     * @param title
+     * @param description
+     * @returns {*}
+     */
+    const addEntry = ({title, description}) => {
+        return update(state, path, (entries) => {
+            entries.push(new Change(title, description));
 
-        case Action.EDIT_TITLE:
-            state.title = value;
-
-            return convert(state);
-
-        case Action.EDIT_DESCRIPTION:
-            state.description = value;
-
-            return convert(state);
-        default:
             return state;
+        });
+    };
+
+    /**
+     *
+     * @param value
+     * @returns {*}
+     */
+    const setChangeLog = (value) => {
+        return value;
+    };
+
+    /**
+     *
+     * @param value
+     * @returns {*}
+     */
+    const editTitle = (value) => {
+        state.title = value;
+
+        return state;
+    };
+
+    /**
+     *
+     * @param value
+     * @returns {*}
+     */
+    const editDescription = (value) => {
+        state.description = value;
+
+        return state;
+    };
+
+    const {[action]: handle} = {
+        [Action.ADD_RELEASE]: addRelease,
+        [Action.DELETE_RELEASE]: deleteRelease,
+        [Action.ADD_ENTRY]: addEntry,
+        [Action.SET_CHANGELOG]: setChangeLog,
+        [Action.EDIT_TITLE]: editTitle,
+        [Action.EDIT_DESCRIPTION]: editDescription,
+    };
+
+    if (!handle) {
+        return state;
     }
+
+    state = handle(value);
+
+    return convert(state);
 }

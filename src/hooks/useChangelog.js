@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {Context} from 'contexts/Changelog';
+export {Action} from 'reducers/changelog';
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
