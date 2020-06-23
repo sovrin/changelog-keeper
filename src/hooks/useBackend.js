@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Context as Backend} from 'contexts/Backend';
 
 /**
@@ -10,11 +10,9 @@ export default () => {
     const [source, setSource] = useState(null);
     const {read} = useContext(Backend);
 
-    useEffect(() => {
-        read('CHANGELOG.md')
-            .then(setSource)
-        ;
-    }, []);
+    read('CHANGELOG.md')
+        .then(setSource)
+    ;
 
     return {
         source,
