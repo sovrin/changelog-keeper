@@ -1,5 +1,6 @@
 import {parser, Change, Release} from 'keep-a-changelog';
 import {explode} from 'hooks/usePath';
+import {getter} from './base';
 
 const VERSION_REGEX = /##\s(\d\.\d\.\d)\s/g;
 
@@ -12,25 +13,13 @@ export const Action = {
     EDIT_DESCRIPTION: 'edit_about',
 };
 
-/**
- *
- * @param path
- * @param context
- */
-const getter = (path, context) => (
-    path.slice(0).reduce((acc, step, i, a) => {
-        if (acc instanceof Map) {
-            return acc.get(step);
-        }
+export const INITIAL = {
+    title: '',
+    description: '',
+    releases: [],
+};
 
-        if (acc[step] === undefined) {
-            // eject
-            a.splice(1);
-        }
-
-        return acc[step];
-    }, context))
-;
+export const HEAD = new Release('0.0.0', new Date());
 
 /**
  *
@@ -83,7 +72,22 @@ export default (state, {action, value, path}) => {
      *
      */
     const deleteRelease = () => {
+        return update(state, path, (target) => {
+            return update(state, 'releases', (releases) => {
 
+                for (const index in releases) {
+                    const release = releases[index];
+
+                    if (target !== release) {
+                        continue;
+                    }
+
+                    delete releases[index];
+                }
+
+                return state;
+            });
+        });
     };
 
     /**

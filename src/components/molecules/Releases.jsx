@@ -44,13 +44,6 @@ const Releases = ({releases}) => {
 
     /**
      *
-     */
-    const removeRelease = () => {
-
-    };
-
-    /**
-     *
      * @param changes
      * @param date
      * @param version

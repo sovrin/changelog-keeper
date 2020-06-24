@@ -1,5 +1,5 @@
 import React, {createContext, useReducer, useEffect} from 'react';
-import reducer, {Action} from 'reducers/changelog';
+import reducer, {Action, INITIAL, HEAD} from 'reducers/changelog';
 import useBackend from 'hooks/useBackend';
 
 export const Context = createContext(null);
@@ -12,13 +12,8 @@ const {Provider} = Context;
  */
 export default ({children}) => {
     const {source} = useBackend();
-    const [changelog, dispatch] = useReducer(reducer, {
-        title: '',
-        description: '',
-        releases: [],
-    });
-
-    const {releases: [head]} = changelog;
+    const [changelog, dispatch] = useReducer(reducer, INITIAL);
+    const {releases: [head = HEAD]} = changelog;
 
     const context = {
         changelog,

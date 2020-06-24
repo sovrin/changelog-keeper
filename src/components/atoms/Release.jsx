@@ -8,6 +8,7 @@ import Root, {Delete} from 'styles/atoms/Release.style';
 import useInterpreter from 'hooks/useInterpreter';
 import usePath from 'hooks/usePath';
 import useFolder from 'hooks/useFoldable';
+import useChangelog, {Action} from 'hooks/useChangelog';
 
 /**
  *
@@ -24,12 +25,20 @@ const Release = ({changes, version, date, index}) => {
     const path = usePath('releases', index);
     const {isLocked, isHead} = useInterpreter(path);
     const {onFold, Folder} = useFolder(isHead);
+    const {dispatch} = useChangelog();
+
+    /**
+     *
+     */
+    const onDelete = () => {
+        dispatch({action: Action.DELETE_RELEASE, path});
+    };
 
     return (
         <Root>
             <Eval test={!isLocked}>
                 <Delete
-                    // onClick={onClick}
+                    onClick={onDelete}
                     size={Button.Size.SMALL}
                     action
                 >
