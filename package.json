@@ -29,7 +29,7 @@
     "@babel/plugin-transform-runtime": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.1",
-    "@thomann/spectre-react-components": "^0.1.7",
+    "@thomann/spectre-react-components": "^0.2.0",
     "babel-loader": "8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.6.0",

@@ -1,10 +1,9 @@
 import React from 'react';
-import {Button, Icon} from '@thomann/spectre-react-components';
 import {Action} from 'reducers/changelog';
 import useChangelog from 'hooks/useChangelog';
-import useEditable from 'hooks/useEditable';
 import Markdown from './Markdown';
 import Root from 'styles/atoms/Description.style';
+import Editor from '../molecules/Editor';
 
 /**
  *
@@ -14,25 +13,22 @@ import Root from 'styles/atoms/Description.style';
  */
 const Description = ({children}) => {
     const {dispatch} = useChangelog();
-    const [Editable, toggle] = useEditable(children, Markdown);
 
-    const handleChange = () => {
-        dispatch({action: Action.EDIT_DESCRIPTION, value: 'NEW DESCRIPTION'});
+    /**
+     *
+     */
+    const handleChange = (value) => {
+        dispatch({action: Action.EDIT_DESCRIPTION, value});
     };
 
     return (
         <Root>
-            <Editable />
-
-            <Button
-                onClick={toggle}
-                size={Button.Size.SMALL}
-                action
+            <Editor
+                wrapper={Markdown}
+                onSubmit={handleChange}
             >
-                <Icon
-                    type={Icon.Type.EDIT}
-                />
-            </Button>
+                {children}
+            </Editor>
         </Root>
     );
 };

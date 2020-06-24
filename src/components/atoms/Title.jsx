@@ -1,10 +1,9 @@
 import React from 'react';
-import Icon from '@thomann/spectre-react-components/Icon';
+import Markdown from './Markdown';
 import {Action} from 'reducers/changelog';
 import useChangelog from 'hooks/useChangelog';
-import Root, {Text, Edit} from 'styles/atoms/Title.style';
-import {Button} from '@thomann/spectre-react-components';
-import {Delete} from '../../styles/atoms/Release.style';
+import Root, {Text} from 'styles/atoms/Title.style';
+import Editor from 'components/molecules/Editor';
 
 /**
  *
@@ -17,21 +16,22 @@ const Title = ({children}) => {
 
     /**
      *
+     * @param value
      */
-    const handleChange = () => {
-        dispatch({action: Action.EDIT_TITLE, value: 'NEW TITLE'});
+    const handleChange = (value) => {
+        dispatch({action: Action.EDIT_TITLE, value});
     };
 
     return (
         <Root>
-            <Text>{children}</Text>
-            <Edit
-                onClick={handleChange}
-                size={Button.Size.SMALL}
-                action
-            >
-                <Icon type={Icon.Type.EDIT}/>
-            </Edit>
+            <Text>
+                <Editor
+                    wrapper={Markdown}
+                    onSubmit={handleChange}
+                >
+                    {children}
+                </Editor>
+            </Text>
         </Root>
     );
 };
