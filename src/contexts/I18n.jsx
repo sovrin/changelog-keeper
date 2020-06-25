@@ -40,7 +40,7 @@ export default ({lang, children}) => {
             return target(parameters || {});
         }
 
-        return target;
+        return target || `[${cursor}]`;
     };
 
     const value = {
