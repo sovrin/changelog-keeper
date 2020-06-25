@@ -13,17 +13,17 @@ export default (target, parameters = {}) => {
      *
      * @param cursor
      * @param parameter
-     * @returns {Generator<*|(function(*=): *), void, *>}
+     * @returns {*|(function(*=): *)}
      */
-    function* build (cursor, parameter) {
+    const build = (cursor, parameter) => {
         if (typeof cursor === 'function') {
-            yield (params) => {
+            return (params) => {
                 const computed = cursor(params);
 
                 return resolve(computed, parameter);
             };
         } else {
-            yield resolve(cursor, parameter);
+            return resolve(cursor, parameter);
         }
     }
 
@@ -32,13 +32,13 @@ export default (target, parameters = {}) => {
      * @param key
      * @param keys
      * @param parameters
-     * @returns {* | (function(*=): *) | void}
+     * @returns {*|(function(*=): *)}
      */
-    const iterate = (key, keys, parameters) => {
+    const extract = (key, keys, parameters) => {
         const {[key]: cursor} = keys;
         const {[key]: parameter} = parameters;
 
-        return build(cursor, parameter).next().value;
+        return build(cursor, parameter);
     };
 
     /**
@@ -54,7 +54,7 @@ export default (target, parameters = {}) => {
                 continue;
             }
 
-            processed[key] = iterate(key, target, parameters);
+            processed[key] = extract(key, target, parameters);
         }
 
         return processed;
