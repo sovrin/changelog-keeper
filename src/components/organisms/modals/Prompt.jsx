@@ -53,7 +53,7 @@ const Prompt = ({className, children, onClose, onConfirm, title, label, loading}
                             onClick={onClose}
                             error
                         >
-                            <Snippet cursor="common.cancel"/>
+                            <Snippet cursor="label.common.cancel"/>
                         </Button>
                     </Group>
                 </Footer>

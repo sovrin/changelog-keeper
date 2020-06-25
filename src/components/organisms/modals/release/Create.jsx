@@ -20,7 +20,7 @@ const Create = (props) => {
 
     const {title, label} = useI18n({
         title: 'modal.create.title',
-        label: 'common.create',
+        label: 'label.common.create',
     });
 
     /**
@@ -46,7 +46,7 @@ const Create = (props) => {
 
             <Root>
                 <Hint>
-                    <Snippet cursor={`release.${type}`}/>
+                    <Snippet cursor={`description.release.${type}`}/>
                 </Hint>
 
                 <ReleaseTypes

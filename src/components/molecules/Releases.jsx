@@ -65,7 +65,7 @@ const Releases = ({releases}) => {
     return (
         <div className="releases">
             <Button onClick={addRelease}>
-                <Snippet cursor="release.add"/>
+                <Snippet cursor="description.release.add"/>
             </Button>
             {children}
         </div>
