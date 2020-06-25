@@ -1,21 +1,17 @@
 import styled from 'styled-components';
-import {Menu} from '@thomann/spectre-react-components';
 
 /**
  *
  */
-export const Text = styled('h1')`
+export const Text = styled('div')`
+    font-size: x-large;
     margin: 0;
 `;
 
 /**
  *
  */
-const Root = styled(Menu)`
-    //display: flex;
-    //flex-direction: row;
-    //align-items: center;
-    //justify-content: space-between;
+const Root = styled('div')`
     margin: var(--spacing-lg) auto;
 `;
 

@@ -1,8 +1,7 @@
 import React from 'react';
 import {Change as Entry} from 'keep-a-changelog';
 import Change from 'components/atoms/Change';
-import {Action} from 'reducers/changelog';
-import useChangelog from 'hooks/useChangelog';
+import useChangelog, {Action} from 'hooks/useChangelog';
 import usePath from 'hooks/usePath';
 
 /**
@@ -16,7 +15,7 @@ const Changes = ({changes, path}) => {
     const {dispatch} = useChangelog();
 
     const addChange = () => {
-
+        // dispatch({action: Action.})
     };
 
     const removeChange = () => {
@@ -43,7 +42,7 @@ const Changes = ({changes, path}) => {
     }
 
     return (
-        <div className="changes">
+        <div>
             {children}
         </div>
     );

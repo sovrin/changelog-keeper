@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 import React from 'react';
+import {Button} from '@thomann/spectre-react-components';
+
+/**
+ *
+ */
+export const Add = styled(Button)`
+    float: right;
+`;
 
 /**
  *

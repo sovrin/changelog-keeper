@@ -7,7 +7,7 @@ import useMysqlDate from 'hooks/useMysqlDate';
  * @returns {*}
  * @constructor
  */
-const Timestamp = ({date}) => {
+const Timestamp = ({className, date}) => {
     if (!date) {
         date = new Date();
     }
@@ -15,7 +15,7 @@ const Timestamp = ({date}) => {
     date = useMysqlDate(date);
 
     return (
-        <span className="date">
+        <span className={className}>
             {date}
         </span>
     );

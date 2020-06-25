@@ -1,9 +1,9 @@
 import React from 'react';
-import {Button} from '@thomann/spectre-react-components';
+import {Button, Icon} from '@thomann/spectre-react-components';
 import Entries from 'components/molecules/Entries';
 import Eval from './Eval';
 import {Action} from 'reducers/changelog';
-import Root from 'styles/atoms/Change.style';
+import Root, {Add} from 'styles/atoms/Change.style';
 import useChangelog from 'hooks/useChangelog';
 import useInterpreter from 'hooks/useInterpreter';
 
@@ -20,7 +20,7 @@ const Change = ({children, type, entries, path}) => {
     const {dispatch} = useChangelog();
     const {isLocked} = useInterpreter(path);
 
-    const addEntry = () => {
+    const onAdd = () => {
         dispatch({
             action: Action.ADD_ENTRY,
             value: 'YEET',
@@ -34,16 +34,21 @@ const Change = ({children, type, entries, path}) => {
 
     return (
         <Root>
-            <h3>{type}</h3>
+            <Eval test={!isLocked}>
+                <Add
+                    onClick={onAdd}
+                    size={Button.Size.SMALL}
+                    action
+                >
+                    <Icon type={Icon.Type.PLUS}/>
+                </Add>
+            </Eval>
+            {type}
             <Entries
                 entries={entries}
                 path={path}
             />
             {children}
-
-            <Eval test={!isLocked}>
-                <Button onClick={addEntry}>new entry</Button>
-            </Eval>
         </Root>
     );
 };

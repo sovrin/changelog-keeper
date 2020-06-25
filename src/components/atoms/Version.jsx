@@ -3,11 +3,12 @@ import React from 'react';
 /**
  *
  * @param children
+ * @param className
  * @returns {*}
  * @constructor
  */
-const Version = ({children}) => (
-    <span className="version">
+const Version = ({children, className}) => (
+    <span className={className}>
         [{children}]
     </span>
 );

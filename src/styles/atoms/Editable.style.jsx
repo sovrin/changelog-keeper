@@ -12,10 +12,9 @@ export const Content = styled('div')`
  */
 const Root = styled('div')`
    padding: var(--spacing-sm);
+   width: 100%;
    
    ${({active}) => active && `
-        background: var(--grey);
-        border-radius: var(--border-radius);
         outline: none;     
     `}
 `;
