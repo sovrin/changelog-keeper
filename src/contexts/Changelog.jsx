@@ -11,7 +11,7 @@ const {Provider} = Context;
  * Time: 20:33
  */
 export default ({children}) => {
-    const {source} = useBackend();
+    const {read} = useBackend();
     const [changelog, dispatch] = useReducer(reducer, INITIAL);
     const {releases: [head = HEAD]} = changelog;
 
@@ -22,12 +22,12 @@ export default ({children}) => {
     };
 
     useEffect(() => {
-        if (!source) {
-            return;
-        }
+        (async () => {
+            const source = await read('CHANGELOG.md');
 
-        dispatch({action: Action.SET_CHANGELOG, value: source});
-    }, [source]);
+            dispatch({action: Action.SET_CHANGELOG, value: source});
+        })();
+    }, []);
 
     return (
         <Provider value={context}>

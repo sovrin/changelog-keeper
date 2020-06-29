@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {Context as Backend} from 'contexts/Backend';
 
 /**
@@ -7,14 +7,19 @@ import {Context as Backend} from 'contexts/Backend';
  * Time: 18:47
  */
 export default () => {
-    const [source, setSource] = useState(null);
-    const {read} = useContext(Backend);
+    const {backend} = useContext(Backend);
 
-    read('CHANGELOG.md')
-        .then(setSource)
-    ;
+    /**
+     *
+     * @param path
+     */
+    const read = (path) => {
+        path = 'C:/dev/projects/tcl/' + path;
+
+        return backend.read(path);
+    };
 
     return {
-        source,
+        read,
     };
 }

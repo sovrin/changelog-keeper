@@ -8,7 +8,7 @@ const {Provider} = Context;
  * Date: 06.06.2020
  * Time: 12:57
  */
-export default ({routes}) => {
+export default ({routes, prefix = ''}) => {
     const [stack, setStack] = useState([]);
     const [next, setNext] = useState(null);
 
@@ -28,7 +28,7 @@ export default ({routes}) => {
 
         const props = route.match(/:[a-zA-Z]+/g);
 
-        const result = props
+        const result = (props)
             ? props.map(name => name.substr(1))
             : []
         ;
@@ -58,7 +58,11 @@ export default ({routes}) => {
      *
      */
     const evaluate = () => {
-        const current = window.location.pathname || '/';
+        let current = window.location.pathname || '/';
+
+        if (prefix) {
+            current = current.replace(prefix, current);
+        }
 
         for (const {route, target} of stack) {
             const [reg, group] = route;
