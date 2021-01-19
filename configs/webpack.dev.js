@@ -1,4 +1,4 @@
-const merge = require('webpack-merge');
+const {merge} = require('webpack-merge');
 const common = require('./webpack.common.js');
 const {HotModuleReplacementPlugin} = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -10,11 +10,9 @@ module.exports = merge(common, {
     devServer: {
         contentBase: './app/assets',
         hot: true,
-        historyApiFallback: {
-            index: 'index.html'
-        },
+        historyApiFallback: true,
         proxy: {
-            '/api': `http://localhost:3000`,
+            '/api': `http://localhost:8070`,
         },
     },
     module: {

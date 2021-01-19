@@ -7,8 +7,6 @@
     "width": "1000",
     "height": "700",
     "fullscreen": false,
-    "alwaysontop": true,
-    "iconfile": "app/assets/neutralino.png",
     "enableinspector": true,
     "borderlesswindow": true
   }
