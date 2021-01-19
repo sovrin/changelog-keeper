@@ -14,6 +14,5 @@ on('GET', '/api/changelog', async (req, res) => {
     res.end(object);
 });
 
-
 const server = createServer(route);
 server.listen(8070);

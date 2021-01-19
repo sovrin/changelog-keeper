@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {useClassName} from '@thomann/spectre-react-components/hooks';
 import useOnKey, {Key, Type} from './useOnKey';
-import Root, {Content} from '~/styles/atoms/Editable.style';
+import Root, {Content} from '~/components/Editable.style';
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>

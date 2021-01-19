@@ -17,18 +17,19 @@ export default ({lang, children}) => {
      * @param steps
      * @param target
      */
-    const reduce = (steps, target) => (
-        steps.slice(0).reduce((acc, step, i, a) => {
-            const key = step.toUpperCase();
-            const {[key]: next} = acc;
+    const reduce = (steps: Array<string>, target: string) => (
+        steps.slice(0)
+            .reduce((acc, step, i, a) => {
+                const key = step.toUpperCase();
+                const {[key]: next} = acc as any;
 
-            if (next === undefined) {
-                // eject
-                a.splice(1);
-            }
+                if (next === undefined) {
+                    // eject
+                    a.splice(1);
+                }
 
-            return next;
-        }, target)
+                return next;
+            }, target)
     );
 
     /**
@@ -36,7 +37,7 @@ export default ({lang, children}) => {
      * @param cursor
      * @param parameters
      */
-    const resolve = (cursor, parameters) => {
+    const resolve = (cursor: string, parameters: object) => {
         const steps = cursor.split('.');
         const target = reduce(steps, context);
 
