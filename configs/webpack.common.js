@@ -11,13 +11,14 @@ const SCENES = resolve(SRC, 'scenes');
 const ASSETS = resolve(APP, 'assets');
 const STYLES = resolve(SRC, 'styles');
 
-const utils = resolve(SRC, 'utils.ts');
 const main = resolve(SRC, 'index.tsx');
 
 module.exports = {
-    entry: {
+    entry: [
+        'webpack-dev-server/client?http://localhost:8080',
+        'webpack/hot/only-dev-server',
         main
-    },
+    ],
     output: {
         filename: '[name].bundle.js',
         chunkFilename: '[name].bundle.js',
@@ -49,7 +50,6 @@ module.exports = {
     },
     resolve: {
         alias: {
-            // utils,
             '~/components': COMPONENTS,
             '~/hooks': HOOKS,
             '~/reducers': REDUCERS,
