@@ -9,8 +9,7 @@ export default (path) => {
     const [part, release] = explode(path);
 
     const isLocked = (part === 'releases' && ~~release !== 0);
-
-    const isHead = (release < 3);
+    const isHead = (~~release < 3);
 
     return {
         isLocked,

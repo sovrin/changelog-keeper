@@ -1,0 +1,38 @@
+.release {
+    margin-bottom: var(--spacing) !important;
+
+    &:hover {
+        > .delete {
+            opacity: 1;
+        }
+    }
+}
+
+.header {
+    display: flex;
+    align-content: center;
+    font-size: x-large;
+    cursor: pointer;
+
+    > .version {
+        margin-right: var(--spacing);
+
+        + span {
+            margin-right: var(--spacing);
+        }
+    }
+
+    > .timestamp {
+        margin-right: var(--spacing);
+    }
+}
+
+.timestamp {
+
+}
+
+.delete {
+    float: right;
+    opacity: 0;
+    transition: opacity .2s;
+}

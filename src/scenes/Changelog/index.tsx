@@ -1,7 +1,7 @@
 import React from 'react';
-import Page from '~/components/Page';
+import Page from 'components/Page';
 import Content from './components/Content';
-import Provider from './contexts/Changelog';
+import {Changelog} from './contexts';
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
@@ -9,9 +9,9 @@ import Provider from './contexts/Changelog';
  * Time: 15:34
  */
 export default () => (
-    <Provider>
+    <Changelog>
         <Page>
             <Content/>
         </Page>
-    </Provider>
+    </Changelog>
 )

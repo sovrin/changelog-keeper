@@ -1,39 +1,36 @@
 import React from 'react';
 import {hot} from 'react-hot-loader/root';
 import Modals from '@thomann/spectre-react-components/Modals';
-import Router from '~/contexts/Router';
-import I18n from '~/contexts/I18n';
-import Backend, {isNeutralino} from '~/contexts/Backend';
+import {Backend, I18n, Router, Settings} from 'contexts';
+import {Frame} from './';
 import routes from '../routes';
+import 'styles/global.css';
 
-import 'spectre.css';
-import 'spectre.css/dist/spectre-icons.min.css';
-import 'spectre.css/dist/spectre-exp.min.css';
+const {version, name} = require('../../package.json');
 
 /**
  *
  * @returns {*}
  * @constructor
  */
-const App = () => {
-    const prefix = (isNeutralino)
-        ? '/changelog-keeper'
-        : ''
-    ;
-
-    return (
-        <Backend>
-            <I18n lang={'english'}>
-                <Modals>
-                    <Router
-                        routes={routes}
-                        prefix={prefix}
-                    />
-                </Modals>
-            </I18n>
-        </Backend>
-    );
-}
+const App = () => ((
+    <Settings
+        version={version}
+        name={name}
+    >
+        {({language}) => (
+            <Backend>
+                <Frame>
+                    <I18n lang={language}>
+                        <Modals>
+                            <Router routes={routes}/>
+                        </Modals>
+                    </I18n>
+                </Frame>
+            </Backend>
+        )}
+    </Settings>
+));
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>

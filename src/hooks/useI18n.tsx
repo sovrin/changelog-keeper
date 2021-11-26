@@ -2,11 +2,11 @@ import {useContext, useMemo} from 'react';
 import {Context as I18n} from 'contexts/I18n';
 
 /**
- * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
- * Date: 04.02.2020
- * Time: 20:28
+ *
+ * @param target
+ * @param parameters
  */
-export default (target = null, parameters = {}): any => {
+const useI18n = (target = null, parameters = {}): any => {
     const {resolve} = useContext(I18n);
 
     /**
@@ -24,7 +24,7 @@ export default (target = null, parameters = {}): any => {
         } else {
             return resolve(cursor, parameter);
         }
-    }
+    };
 
     /**
      *
@@ -69,4 +69,11 @@ export default (target = null, parameters = {}): any => {
         resolve,
         ...snippets,
     };
-}
+};
+
+/**
+ * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
+ * Date: 04.02.2020
+ * Time: 20:28
+ */
+export default useI18n;

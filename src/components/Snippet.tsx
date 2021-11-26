@@ -1,9 +1,10 @@
 import React from 'react';
-import useI18n from '~/hooks/useI18n';
+import {useI18n} from 'hooks';
 
 /**
  *
- * @returns {*}
+ * @param cursor
+ * @param parameter
  * @constructor
  */
 const Snippet = ({cursor, parameter = null}) => {

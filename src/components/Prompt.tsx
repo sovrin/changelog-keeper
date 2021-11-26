@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@thomann/spectre-react-components/Button';
 import Modal, {Container, Body, Footer, Header, Overlay} from '@thomann/spectre-react-components/Modal';
 import Group from '@thomann/spectre-react-components/Group';
-import Snippet from '~/components/Snippet';
+import Snippet from 'components/Snippet';
 
 /**
  *
@@ -23,7 +23,9 @@ const Prompt = ({className, children, onClose, onConfirm, title, label, loading}
     /**
      *
      */
-    const onSubmit = () => onConfirm() && onClose();
+    const onSubmit = () => (
+        onConfirm() && onClose()
+    );
 
     return (
         <Modal
@@ -41,6 +43,12 @@ const Prompt = ({className, children, onClose, onConfirm, title, label, loading}
                 </Body>
                 <Footer>
                     <Group>
+                        <Button
+                            onClick={onClose}
+                            error
+                        >
+                            <Snippet cursor="label.common.cancel"/>
+                        </Button>
                         {(onConfirm) && (
                             <Button
                                 onClick={onSubmit}
@@ -49,12 +57,6 @@ const Prompt = ({className, children, onClose, onConfirm, title, label, loading}
                                 {label}
                             </Button>
                         )}
-                        <Button
-                            onClick={onClose}
-                            error
-                        >
-                            <Snippet cursor="label.common.cancel"/>
-                        </Button>
                     </Group>
                 </Footer>
             </Container>

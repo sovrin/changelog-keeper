@@ -1,10 +1,11 @@
 import React from 'react';
 import Button from '@thomann/spectre-react-components/Button';
 import {useModal} from '@thomann/spectre-react-components/hooks';
-import Snippet from '~/components/Snippet';
-import Release from '~/scenes/Changelog/components/Releases/Release';
-import Create from '~/scenes/Changelog/components/modals/release/Create';
-import useChangelog, {Action} from '~/scenes/Changelog/hooks/useChangelog';
+import Snippet from 'components/Snippet';
+import Release from 'scenes/Changelog/components/Releases/Release';
+import Create from 'scenes/Changelog/components/modals/release/Create';
+import useChangelog from 'scenes/Changelog/hooks/useChangelog';
+import style from './module.less';
 
 /**
  *
@@ -13,7 +14,7 @@ import useChangelog, {Action} from '~/scenes/Changelog/hooks/useChangelog';
  * @constructor
  */
 const Releases = ({releases}) => {
-    const {dispatch, head} = useChangelog();
+    const {dispatch, head, Action} = useChangelog();
     const [showModal] = useModal.default(Create);
 
     /**
@@ -63,7 +64,7 @@ const Releases = ({releases}) => {
     const children = releases.map(build);
 
     return (
-        <div className="releases">
+        <div className={style.releases}>
             <Button onClick={addRelease}>
                 <Snippet cursor="description.release.add"/>
             </Button>

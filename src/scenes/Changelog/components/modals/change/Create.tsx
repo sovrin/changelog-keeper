@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
-import Prompt from '~/components/Prompt';
-import Snippet from '~/components/Snippet';
-import Editor from '~/components/Editor';
-import useI18n from '~/hooks/useI18n';
-import Hint from '~/scenes/Changelog/components/modals/Hint';
-import ChangeTypes from '~/scenes/Changelog/components/modals/ChangeTypes';
+import {Prompt, Snippet, Editor} from 'components';
+import {useI18n} from 'hooks';
+import Hint from 'scenes/Changelog/components/modals/Hint';
+import ChangeTypes from 'scenes/Changelog/components/modals/ChangeTypes';
 
 /**
  *

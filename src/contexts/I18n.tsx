@@ -5,11 +5,12 @@ export const Context = createContext(null);
 const {Provider} = Context;
 
 /**
- * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
- * Date: 04.02.2020
- * Time: 20:21
+ *
+ * @param lang
+ * @param children
+ * @constructor
  */
-export default ({lang, children}) => {
+const I18n = ({lang, children}) => {
     const {[lang]: context} = i18n as any;
 
     /**
@@ -59,4 +60,11 @@ export default ({lang, children}) => {
             {children}
         </Provider>
     );
-}
+};
+
+/**
+ * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
+ * Date: 04.02.2020
+ * Time: 20:21
+ */
+export default I18n;

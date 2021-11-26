@@ -1,9 +1,7 @@
 import React from 'react';
-import Base from "~/components/layouts/Content";
-import Releases from './Releases';
-import Description from './Description';
-import Title from './Title';
-import useChangelog from '../hooks/useChangelog';
+import Element from 'components/Page/Content';
+import {Releases, Description, Title} from './';
+import {useChangelog} from '../hooks';
 
 /**
  *
@@ -14,11 +12,11 @@ const Content = () => {
     const {title, description, releases} = changelog;
 
     return (
-        <Base>
+        <Element>
             <Title>{title}</Title>
             <Description>{description}</Description>
             <Releases releases={releases}/>
-        </Base>
+        </Element>
     );
 };
 

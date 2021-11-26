@@ -1,6 +1,6 @@
 import {parser, Change, Release} from 'keep-a-changelog';
-import {getter} from '~/reducers/base';
-import {explode} from '~/hooks/usePath';
+import {explode} from 'hooks/usePath';
+import {getter} from 'utils';
 
 const VERSION_REGEX = /##\s(\d\.\d\.\d)\s/g;
 
@@ -53,11 +53,13 @@ const convert = (state) => {
 };
 
 /**
- * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
- * Date: 25.09.2019
- * Time: 00:54
+ *
+ * @param state
+ * @param action
+ * @param value
+ * @param path
  */
-export default (state, {action, value, path = null}) => {
+const factory = (state, {action, value, path = null}) => {
 
     /**
      *
@@ -164,4 +166,11 @@ export default (state, {action, value, path = null}) => {
     state = handle(value);
 
     return convert(state);
-}
+};
+
+/**
+ * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
+ * Date: 25.09.2019
+ * Time: 00:54
+ */
+export default factory;

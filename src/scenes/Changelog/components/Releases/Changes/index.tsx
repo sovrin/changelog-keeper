@@ -1,7 +1,7 @@
 import React from 'react';
 import Change from './Change';
-import useChangelog from '~/scenes/Changelog/hooks/useChangelog';
-import usePath from '~/hooks/usePath';
+import useChangelog from 'scenes/Changelog/hooks/useChangelog';
+import usePath from 'hooks/usePath';
 
 /**
  *
@@ -27,6 +27,8 @@ const Changes = ({changes, path}) => {
         }
 
         const context = usePath('changes', type, path);
+
+        console.info(context);
 
         const build = (
             <Change

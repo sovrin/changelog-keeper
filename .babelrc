@@ -1,13 +1,10 @@
 {
   "presets": [
-    "@babel/preset-env",
+    "@babel/preset-modules",
     "@babel/preset-typescript",
     "@babel/preset-react"
   ],
   "plugins": [
-    "react-hot-loader/babel",
-    "babel-plugin-styled-components",
-    "@babel/plugin-proposal-class-properties",
     "@babel/plugin-transform-runtime"
   ]
 }

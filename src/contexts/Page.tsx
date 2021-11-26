@@ -1,15 +1,15 @@
 import React, {createContext, useEffect, useState} from 'react';
-import useUnique from '~/hooks/useUnique';
+import {useUnique} from 'hooks';
 
 export const Context = createContext(null);
 const {Provider} = Context;
 
 /**
- * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
- * Date: 21.11.2019
- * Time: 20:06
+ *
+ * @param children
+ * @constructor
  */
-export default ({children}) => {
+const Page = ({children}) => {
     const [id, setId] = useState(null);
 
     const context = {
@@ -27,4 +27,11 @@ export default ({children}) => {
             {children}
         </Provider>
     );
-}
+};
+
+/**
+ * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
+ * Date: 21.11.2019
+ * Time: 20:06
+ */
+export default Page;

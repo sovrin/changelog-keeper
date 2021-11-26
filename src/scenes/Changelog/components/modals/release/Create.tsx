@@ -1,12 +1,11 @@
 import React from 'react';
-import Prompt from '~/components/Prompt';
-import Snippet from '~/components/Snippet';
-import useI18n from '~/hooks/useI18n';
+import {Prompt, Snippet} from 'components';
+import {useI18n} from 'hooks';
 import Hint from '../Hint';
 import ReleaseTypes from '../ReleaseTypes';
 import SemVer from '../../SemVer';
-import useSemVer from '../../../hooks/useSemVer';
-import Root from './Create.style';
+import {useSemVer} from '../../../hooks';
+import style from './module.less';
 
 /**
  *
@@ -44,7 +43,7 @@ const Create = (props) => {
                 type={type}
             />
 
-            <Root>
+            <div className={style.create}>
                 <Hint>
                     <Snippet cursor={`description.release.${type}`}/>
                 </Hint>
@@ -53,7 +52,7 @@ const Create = (props) => {
                     current={type}
                     onClick={bump}
                 />
-            </Root>
+            </div>
         </Prompt>
     );
 };

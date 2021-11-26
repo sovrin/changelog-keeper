@@ -1,18 +1,23 @@
 import React, {createContext} from 'react';
-import * as backend from '../backend';
+import backend from 'adapters';
 
 export const Context = createContext(null);
 const {Provider} = Context;
 
-export const isNeutralino = backend.isNeutralino;
+/**
+ *
+ * @param children
+ * @constructor
+ */
+const Backend = ({children}) => (
+    <Provider value={backend}>
+        {children}
+    </Provider>
+);
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
  * Date: 23.09.2019
  * Time: 20:32
  */
-export default ({children}) => (
-    <Provider value={backend}>
-        {children}
-    </Provider>
-);
+export default Backend;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Entry from './Entry';
-import usePath from '~/hooks/usePath';
+import {usePath} from 'hooks';
 
 /**
  *
@@ -27,7 +27,7 @@ const Entries = ({entries, path}) => {
                 {...entry}
             />
         );
-    }
+    };
 
     const children = entries.map(build);
 

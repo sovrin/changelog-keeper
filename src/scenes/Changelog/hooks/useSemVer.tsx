@@ -8,11 +8,10 @@ export const Type = {
 };
 
 /**
- * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
- * Date: 04.02.2020
- * Time: 18:57
+ *
+ * @param version
  */
-export default (version) => {
+const useSemVer = (version: any) => {
     const [type, setType] = useState(Type.PATCH);
     const [next, setNext] = useState(version);
     const [current] = useState(version);
@@ -55,4 +54,11 @@ export default (version) => {
             current: current && current.raw,
         },
     };
-}
+};
+
+/**
+ * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
+ * Date: 04.02.2020
+ * Time: 18:57
+ */
+export default useSemVer;

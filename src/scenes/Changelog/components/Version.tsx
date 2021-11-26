@@ -7,8 +7,8 @@ import React from 'react';
  * @returns {*}
  * @constructor
  */
-const Version = ({children}) => (
-    <span>
+const Version = ({children, className = null}) => (
+    <span className={className}>
         [{children}]
     </span>
 );

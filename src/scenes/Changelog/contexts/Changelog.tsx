@@ -1,16 +1,16 @@
 import React, {createContext, useReducer, useEffect} from 'react';
 import reducer, {Action, INITIAL, HEAD} from '../reducers/changelog';
-import useBackend from '~/hooks/useBackend';
+import {useBackend} from 'hooks';
 
 export const Context = createContext(null);
 const {Provider} = Context;
 
 /**
- * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
- * Date: 21.11.2019
- * Time: 20:33
+ *
+ * @param children
+ * @constructor
  */
-export default ({children}) => {
+const Changelog = ({children}) => {
     const {read} = useBackend();
     const [changelog, dispatch] = useReducer(reducer, INITIAL);
     const {releases: [head = HEAD]} = changelog;
@@ -22,11 +22,9 @@ export default ({children}) => {
     };
 
     useEffect(() => {
-        (async () => {
-            const source = await read('CHANGELOG.md');
-
+        read('CHANGELOG.md').then((source) => {
             dispatch({action: Action.SET_CHANGELOG, value: source});
-        })();
+        });
     }, []);
 
     return (
@@ -35,3 +33,10 @@ export default ({children}) => {
         </Provider>
     );
 };
+
+/**
+ * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
+ * Date: 21.11.2019
+ * Time: 20:33
+ */
+export default Changelog;

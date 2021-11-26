@@ -7,11 +7,11 @@ import {useRef, useEffect} from 'react';
  * @param element
  * @param options
  */
-const useEventListener = (eventName, handler, element = window, options = null) => {
-    const savedHandler = useRef();
+const useEventListener = (eventName: string, handler: Function, element = window, options = null) => {
+    const savedHandler = useRef(null);
     savedHandler.current = handler;
 
-    const currentOptions = useRef();
+    const currentOptions = useRef(null);
     currentOptions.current = options;
 
     useEffect(() => {
@@ -25,7 +25,6 @@ const useEventListener = (eventName, handler, element = window, options = null) 
 
         const eventListener = (event) => {
             if (savedHandler.current !== undefined) {
-                // @ts-ignore
                 savedHandler.current(event);
             }
         };

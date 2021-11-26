@@ -5,7 +5,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "target": "es6",
-    "jsx": "preserve",
+    "jsx": "react",
     "moduleResolution": "node",
     "allowJs": true,
     "skipLibCheck": true,
@@ -17,14 +17,19 @@
     "sourceMap": true,
     "outDir": "dist",
     "lib": [
-      "ESNext",
+      "ES6",
       "DOM"
     ],
     "paths": {
-      "~/*": [
+      "*": [
         "*"
       ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
   },
   "include": [
     "**/*.ts",

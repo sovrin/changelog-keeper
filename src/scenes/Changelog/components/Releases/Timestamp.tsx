@@ -1,5 +1,4 @@
 import React from 'react';
-import useMysqlDate from '~/hooks/useMysqlDate';
 
 /**
  *
@@ -12,7 +11,15 @@ const Timestamp = ({className, date}) => {
         date = new Date();
     }
 
-    date = useMysqlDate(date);
+    /**
+     *
+     * @param date
+     */
+    const convert = (date) => (
+        date.toISOString().slice(0, 10).replace('T', ' ')
+    );
+
+    date = convert(date);
 
     return (
         <span className={className}>

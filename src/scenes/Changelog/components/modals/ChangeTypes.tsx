@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@thomann/spectre-react-components/Button';
 import Group from '@thomann/spectre-react-components/Group';
-import {Action} from '../../components/Releases/Type';
+import {Action} from '../Releases/Summary/Type';
 
 /**
  *

@@ -1,5 +1,5 @@
 import React from 'react';
-import Changelog from '~/scenes/Changelog';
+import {Changelog, Settings} from 'scenes';
 
 /**
  * User: Oleg Kamlowski <oleg.kamlowski@thomann.de>
@@ -7,6 +7,7 @@ import Changelog from '~/scenes/Changelog';
  * Time: 15:57
  */
 export default {
-    '/': 'changelog',
-    '/changelog': () => <Changelog/>,
+    '/main_window': '/main_window/changelog',
+    '/main_window/changelog': Changelog,
+    '/main_window/settings': Settings,
 };

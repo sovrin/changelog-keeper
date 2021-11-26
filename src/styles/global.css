@@ -1,0 +1,58 @@
+@import "~spectre.css/dist/spectre.min.css";
+@import "~spectre.css/dist/spectre-exp.min.css";
+@import "~spectre.css/dist/spectre-icons.min.css";
+
+:root {
+    --white: #f6f6f6;
+    --grey: #f7f8f9;
+    --black_l: #434c5e;
+    --black: #060606;
+    --black_d: #2e3440;
+    --green: #32b643;
+    --blue: #5755d9;
+    --pink: #ff5692;
+    --purple: #d246bd;
+    --red: #ce0d2a;
+    --orange: #ff8969;
+    --yellow: #ffc356;
+    --accent: var(--blue);
+
+    --foreground: var(--black);
+    --background: var(--white);
+
+    --unit-o: .05rem;
+    --unit-h: .1rem;
+    --unit-1: .2rem;
+    --unit-2: .4rem;
+    --unit-3: .6rem;
+    --unit-4: .8rem;
+    --unit-5: 1rem;
+    --unit-6: 1.2rem;
+    --unit-7: 1.4rem;
+    --unit-8: 1.6rem;
+    --unit-9: 1.8rem;
+    --unit-10: 2rem;
+    --unit-12: 2.4rem;
+    --unit-16: 3.2rem;
+
+    --spacing-tn: calc(var(--unit-2) * 0.15);
+    --spacing-xs: calc(var(--unit-2) * 0.25);
+    --spacing-sm: calc(var(--unit-2) * 0.5);
+    --spacing: var(--unit-2);
+    --spacing-lg: calc(var(--unit-2) * 1.5);
+    --spacing-xl: calc(var(--unit-2) * 1.75);
+    --spacing-hg: calc(var(--unit-2) * 1.85);
+
+    --transition-duration: 0.25s;
+    --transition-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    --border-radius: var(--unit-h);
+    --border-width: var(--unit-o);
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background: var(--white);
+}
