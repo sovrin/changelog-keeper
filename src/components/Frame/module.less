@@ -1,0 +1,62 @@
+.frame {
+    display: flex;
+    height: 100%;
+    max-height: 100vh;
+    min-height: 100%;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--accent);
+    color: var(--white);
+}
+
+.content {
+    flex: 1;
+    height: 100%;
+    overflow: auto;
+    position: relative;
+}
+
+.spacer {
+    flex-grow: 1;
+    height: 100%;
+    -webkit-app-region: drag;
+}
+
+.title {
+    font-size: small;
+    color: var(--grey);
+    margin-left: var(--spacing);
+    -webkit-app-region: drag;
+}
+
+.controls {
+    > .options {
+        display: flex;
+
+        > * {
+            margin-right: var(--spacing);
+            align-self: center;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    > .maximize {
+        > i {
+            transform: rotate(-45deg);
+        }
+    }
+
+    > * {
+        color: white !important;
+    }
+}
